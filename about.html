@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - XTools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <script src="js/theme.js" defer></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+    <!-- 头部导航 -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-colors" style="background-color: var(--header-bg); backdrop-filter: blur(10px);">
+        <nav class="container mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="group flex items-center space-x-2">
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:from-blue-400 group-hover:to-indigo-400 logo-text">X<span>Tools</span></span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="home" data-i18n="nav.home">首页</a>
+                    <a href="tools.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="tools" data-i18n="nav.tools">工具库</a>
+                    <a href="about.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="about" data-i18n="nav.about">关于我们</a>
+                    <a href="contact.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="contact" data-i18n="nav.contact">联系我们</a>
+                    <div class="flex items-center space-x-4">
+                        <button id="themeToggle" class="p-2 rounded-full hover:bg-white/10 transition-colors" title="切换主题">
+                            <i class="fas fa-palette text-white/80"></i>
+                        </button>
+                        <div class="relative" id="languageSelector">
+                            <button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                                <i class="fas fa-globe text-white/80"></i>
+                            </button>
+                            <div class="language-dropdown absolute right-0 mt-2 w-40 bg-black/90 backdrop-blur-xl rounded-lg shadow-xl py-2 hidden">
+                                <a href="#" data-lang="zh" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">简体中文</a>
+                                <a href="#" data-lang="en" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">English</a>
+                                <a href="#" data-lang="ja" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">日本語</a>
+                                <a href="#" data-lang="ko" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">한국어</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="mobileMenuButton" class="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <i class="fas fa-bars text-white/80"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col space-y-8 text-center text-2xl">
+                <a href="index.html" class="hover:text-blue-400 transition-colors" data-mobile-link="home" data-i18n="nav.home">首页</a>
+                <a href="tools.html" class="hover:text-blue-400 transition-colors" data-mobile-link="tools" data-i18n="nav.tools">工具库</a>
+                <a href="about.html" class="hover:text-blue-400 transition-colors" data-mobile-link="about" data-i18n="nav.about">关于我们</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-colors" data-mobile-link="contact" data-i18n="nav.contact">联系我们</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面标题 -->
+    <section class="bg-indigo-600 text-white py-12 mt-24">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="aboutPage.title">关于我们</h1>
+            <p class="text-lg opacity-90 max-w-3xl" data-i18n="aboutPage.subtitle">了解XTools背后的团队和我们的使命</p>
+        </div>
+    </section>
+
+    <!-- 公司介绍 -->
+    <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="aboutPage.ourStory">我们的故事</h2>
+                <div class="text-gray-600 dark:text-gray-300 space-y-4">
+                    <p>XTools成立于2020年，是一家专注于开发高效、易用的在线工具的技术公司。我们的使命是通过创新的工具帮助用户提高工作效率，简化复杂任务。</p>
+                    <p>从最初的几个简单工具开始，我们的产品线已经扩展到涵盖媒体处理、开发辅助、设计创作、生产力提升等多个领域。每一款工具都是我们团队精心打造的作品，融入了我们对用户体验和功能实用性的不懈追求。</p>
+                    <p>作为一家技术驱动的公司，我们坚信优秀的工具应该既强大又简单易用。我们致力于将复杂的技术变得简单，让每个人都能轻松使用高级功能，提高工作效率。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的团队 -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="aboutPage.ourTeam">我们的团队</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 团队成员 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="张明" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">张明</h3>
+                        <p class="text-indigo-600 dark:text-indigo-400 text-sm mb-3">创始人 & CEO</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">拥有10年软件开发经验，热衷于创造简单而强大的工具来解决复杂问题。</p>
+                    </div>
+                </div>
+                
+                <!-- 团队成员 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="李娜" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">李娜</h3>
+                        <p class="text-indigo-600 dark:text-indigo-400 text-sm mb-3">产品设计师</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">专注于用户体验设计，致力于创造既美观又实用的产品界面。</p>
+                    </div>
+                </div>
+                
+                <!-- 团队成员 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-lg">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="王磊" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">王磊</h3>
+                        <p class="text-indigo-600 dark:text-indigo-400 text-sm mb-3">技术总监</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">全栈开发者，对新技术充满热情，负责XTools的技术架构和性能优化。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 我们的价值观 -->
+    <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="aboutPage.ourValues">我们的价值观</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 价值观 1 -->
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 mb-4">
+                        <i class="fas fa-lightbulb text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">创新</h3>
+                    <p class="text-gray-600 dark:text-gray-300">我们不断探索新技术，寻找创新的解决方案，为用户提供更好的工具。</p>
+                </div>
+                
+                <!-- 价值观 2 -->
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 mb-4">
+                        <i class="fas fa-heart text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">用户至上</h3>
+                    <p class="text-gray-600 dark:text-gray-300">我们始终以用户需求为中心，不断优化产品体验，倾听用户反馈。</p>
+                </div>
+                
+                <!-- 价值观 3 -->
+                <div class="text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 mb-4">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">诚信可靠</h3>
+                    <p class="text-gray-600 dark:text-gray-300">我们重视用户隐私和数据安全，确保所有工具都是可靠、安全的。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4" data-i18n="aboutPage.contactUs">联系我们</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-8">如果您有任何问题或建议，欢迎随时联系我们。</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 mb-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">电子邮件</h3>
+                        <p class="text-gray-600 dark:text-gray-300">contact@xtools.com</p>
+                    </div>
+                    
+                    <div>
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 mb-3">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">电话</h3>
+                        <p class="text-gray-600 dark:text-gray-300">+86 123 4567 8910</p>
+                    </div>
+                    
+                    <div>
+                        <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 mb-3">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">地址</h3>
+                        <p class="text-gray-600 dark:text-gray-300">北京市海淀区科技园区88号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">X<span class="text-indigo-400">Tools</span></h3>
+                    <p class="text-gray-300 mb-4" data-i18n="footer.description">专业工具集，提升您的工作效率</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.tools">工具</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tools.html?category=productivity" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.productivity">生产力工具</a></li>
+                        <li><a href="tools.html?category=development" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.development">开发工具</a></li>
+                        <li><a href="tools.html?category=design" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.design">设计工具</a></li>
+                        <li><a href="tools.html?category=utility" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.utility">实用工具</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.company">公司</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.about">关于我们</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.contact">联系我们</a></li>
+                        <li><a href="privacy.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.privacy">隐私政策</a></li>
+                        <li><a href="terms.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.terms">使用条款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.subscribe">订阅更新</h4>
+                    <p class="text-gray-300 mb-4" data-i18n="footer.stayUpdated">及时获取最新工具和更新</p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full" data-i18n-placeholder="footer.emailPlaceholder">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 XTools. <span data-i18n="footer.rights">保留所有权利</span>.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

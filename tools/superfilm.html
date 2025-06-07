@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperFilm - 专业照片滤镜应用 | XTools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <link rel="stylesheet" href="../css/tool-detail.css">
+    <link rel="stylesheet" href="../css/tools-common.css">
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+    <!-- 包含导航头部 -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-colors" style="background-color: var(--header-bg); backdrop-filter: blur(10px);">
+        <nav class="container mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="group flex items-center space-x-2">
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:from-blue-400 group-hover:to-indigo-400 logo-text">X<span>Tools</span></span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../index.html" class="nav-link hover:text-blue-400 transition-colors">首页</a>
+                    <a href="../tools.html" class="nav-link hover:text-blue-400 transition-colors active">应用</a>
+                    <a href="../about.html" class="nav-link hover:text-blue-400 transition-colors">关于我们</a>
+                    <a href="../contact.html" class="nav-link hover:text-blue-400 transition-colors">联系我们</a>
+                    <div class="flex items-center space-x-4">
+                        <button id="themeToggle" class="p-2 rounded-full hover:bg-white/10 transition-colors" title="切换主题">
+                            <i class="fas fa-palette text-white/80"></i>
+                        </button>
+                        <div class="relative" id="languageSelector">
+                            <button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                                <i class="fas fa-globe text-white/80"></i>
+                            </button>
+                            <div class="language-dropdown absolute right-0 mt-2 w-40 bg-black/90 backdrop-blur-xl rounded-lg shadow-xl py-2 hidden">
+                                <a href="#" data-lang="zh" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">简体中文</a>
+                                <a href="#" data-lang="en" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">English</a>
+                                <a href="#" data-lang="ja" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">日本語</a>
+                                <a href="#" data-lang="ko" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">한국어</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="mobileMenuButton" class="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <i class="fas fa-bars text-white/80"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col space-y-8 text-center text-2xl">
+                <a href="../index.html" class="hover:text-blue-400 transition-colors">首页</a>
+                <a href="../tools.html" class="hover:text-blue-400 transition-colors active">应用</a>
+                <a href="../about.html" class="hover:text-blue-400 transition-colors">关于我们</a>
+                <a href="../contact.html" class="hover:text-blue-400 transition-colors">联系我们</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面内容 -->
+    <main class="pt-24 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+        <!-- 应用头部 -->
+        <section class="bg-gradient-to-r from-purple-600 to-pink-700 text-white py-16 app-header">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden shadow-lg bg-white p-2">
+                        <img src="../img/app-icon-superfilm.png" alt="SuperFilm应用图标" class="w-full h-full object-cover rounded-2xl">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center mb-2">
+                            <h1 class="text-4xl md:text-5xl font-bold">SuperFilm</h1>
+                            <span class="ml-4 px-3 py-1 bg-white/20 rounded-full text-sm">图像处理</span>
+                        </div>
+                        <p class="text-xl opacity-90 max-w-3xl mb-6">专业级照片滤镜工具，让您的照片焕发艺术光彩</p>
+                        <div class="flex flex-wrap items-center gap-6">
+                            <div class="flex items-center">
+                                <div class="flex mr-2">
+                                    <i class="fas fa-star text-yellow-300"></i>
+                                    <i class="fas fa-star text-yellow-300"></i>
+                                    <i class="fas fa-star text-yellow-300"></i>
+                                    <i class="fas fa-star text-yellow-300"></i>
+                                    <i class="fas fa-star text-yellow-300"></i>
+                                </div>
+                                <span class="text-white/80">4.9 (578 评分)</span>
+                            </div>
+                            <a href="https://apps.apple.com/app/id87654321" target="_blank" class="flex items-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-xl hover:bg-purple-50 transition-colors download-btn">
+                                <i class="fab fa-apple text-xl"></i>
+                                <span>App Store 下载</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用截图 -->
+        <section class="py-16 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">应用展示</h2>
+                <div class="flex overflow-x-auto pb-8 gap-6 snap-x">
+                    <div class="flex-shrink-0 w-64 md:w-80 snap-center">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-2 rounded-3xl shadow-lg">
+                            <img src="../img/superfilm-screenshot-1.jpg" alt="SuperFilm应用截图1" class="rounded-2xl">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-64 md:w-80 snap-center">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-2 rounded-3xl shadow-lg">
+                            <img src="../img/superfilm-screenshot-2.jpg" alt="SuperFilm应用截图2" class="rounded-2xl">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-64 md:w-80 snap-center">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-2 rounded-3xl shadow-lg">
+                            <img src="../img/superfilm-screenshot-3.jpg" alt="SuperFilm应用截图3" class="rounded-2xl">
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0 w-64 md:w-80 snap-center">
+                        <div class="bg-gray-100 dark:bg-gray-700 p-2 rounded-3xl shadow-lg">
+                            <img src="../img/superfilm-screenshot-4.jpg" alt="SuperFilm应用截图4" class="rounded-2xl">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用描述 -->
+        <section class="py-16 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-8">关于SuperFilm</h2>
+                    <div class="prose prose-lg dark:prose-invert max-w-none card-content">
+                        <p>「SuperFilm」是一款专业级照片滤镜应用，为您提供丰富的滤镜效果和编辑工具，让您的照片焕发艺术光彩。无论您是摄影爱好者还是社交媒体达人，「SuperFilm」都能满足您对照片美化的各种需求。</p>
+                        
+                        <p>通过简单的操作，您可以为照片添加复古胶片效果、时尚色调、艺术滤镜等多种风格，轻松打造专业级照片效果。「SuperFilm」还支持高级编辑功能，让您对照片进行精细调整，展现个性创意。</p>
+                        
+                        <h3 class="text-2xl font-bold mt-8 mb-4">核心功能</h3>
+                        <ul>
+                            <li><strong>丰富滤镜效果</strong> - 超过100种精心设计的滤镜，涵盖复古、时尚、电影等多种风格</li>
+                            <li><strong>专业调色工具</strong> - 精确调整亮度、对比度、饱和度、色调等参数</li>
+                            <li><strong>一键美化</strong> - 智能识别照片内容，一键优化照片效果</li>
+                            <li><strong>局部调整</strong> - 支持对照片特定区域进行精细编辑</li>
+                            <li><strong>文字和贴纸</strong> - 丰富的文字样式和贴纸素材，为照片增添个性元素</li>
+                            <li><strong>社交分享</strong> - 一键分享至Instagram、微信、微博等社交平台</li>
+                            <li><strong>自定义滤镜</strong> - 创建并保存您的专属滤镜组合</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能特点 -->
+        <section class="py-16 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">功能特点</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-6">
+                            <i class="fas fa-magic text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">专业滤镜</h3>
+                        <p class="text-gray-600 dark:text-gray-300">精心设计的100+种滤镜效果，让您的照片瞬间变得与众不同</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-6">
+                            <i class="fas fa-sliders-h text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">精确调节</h3>
+                        <p class="text-gray-600 dark:text-gray-300">提供专业级的调色工具，支持对照片进行精细调整，打造完美效果</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-6">
+                            <i class="fas fa-bolt text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">智能美化</h3>
+                        <p class="text-gray-600 dark:text-gray-300">AI智能识别照片内容，一键优化照片效果，节省编辑时间</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-6">
+                            <i class="fas fa-bullseye text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">局部编辑</h3>
+                        <p class="text-gray-600 dark:text-gray-300">支持对照片特定区域进行精细编辑，实现更专业的创意效果</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-6">
+                            <i class="fas fa-share-alt text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">社交分享</h3>
+                        <p class="text-gray-600 dark:text-gray-300">一键分享至各大社交平台，展示您的创意作品</p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-6">
+                            <i class="fas fa-save text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">滤镜收藏</h3>
+                        <p class="text-gray-600 dark:text-gray-300">创建并保存您的专属滤镜组合，快速应用于不同照片</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 用户评价 -->
+        <section class="py-16 bg-gray-50 dark:bg-gray-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-12 text-center">用户评价</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">"SuperFilm的滤镜效果非常专业，一键就能让照片变得非常出色，是我拍照必备的应用。"</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+                                <div class="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">李女士</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">摄影爱好者</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">"作为一名摄影师，我非常喜欢SuperFilm提供的专业调色工具，让我能够对照片进行精细调整，效果非常棒。"</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+                                <div class="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">张先生</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">专业摄影师</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">4.5</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">"超爱SuperFilm的复古胶片效果，让我的旅行照片有了特别的感觉，朋友们都很喜欢，强烈推荐！"</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+                                <div class="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">王女士</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">旅行博主</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下载区域 -->
+        <section class="py-16 bg-gradient-to-r from-purple-600 to-pink-700 text-white download-section">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-6">让您的照片焕发艺术光彩</h2>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8">下载「SuperFilm」，开启专业照片编辑之旅</p>
+                <a href="https://apps.apple.com/app/id87654321" target="_blank" class="inline-flex items-center gap-3 bg-white text-purple-600 px-8 py-4 rounded-xl hover:bg-purple-50 transition-colors text-lg font-medium download-btn">
+                    <i class="fab fa-apple text-2xl"></i>
+                    <span>App Store 下载</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 底部区域 -->
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">X<span class="text-indigo-400">Tools</span></h3>
+                        <p class="text-gray-300 mb-4">专业iOS应用开发，提升您的生活品质</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">应用</h4>
+                        <ul class="space-y-2">
+                            <li><a href="wowu.html" class="text-gray-300 hover:text-white transition-colors">我物</a></li>
+                            <li><a href="superfilm.html" class="text-gray-300 hover:text-white transition-colors">SuperFilm</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">即将推出</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">公司</h4>
+                        <ul class="space-y-2">
+                            <li><a href="../about.html" class="text-gray-300 hover:text-white transition-colors">关于我们</a></li>
+                            <li><a href="../contact.html" class="text-gray-300 hover:text-white transition-colors">联系我们</a></li>
+                            <li><a href="../privacy.html" class="text-gray-300 hover:text-white transition-colors">隐私政策</a></li>
+                            <li><a href="../terms.html" class="text-gray-300 hover:text-white transition-colors">使用条款</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">订阅更新</h4>
+                        <p class="text-gray-300 mb-4">及时获取最新应用和更新</p>
+                        <form class="flex">
+                            <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2023 XTools. 保留所有权利.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+</html> 

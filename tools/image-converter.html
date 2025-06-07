@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像格式转换器 - XTools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- 头部导航 -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md transition-colors duration-300">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">X<span class="text-gray-800 dark:text-white">Tools</span></span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html" class="nav-link" data-i18n="nav.home">首页</a>
+                    <a href="../tools.html" class="nav-link active" data-i18n="nav.tools">工具库</a>
+                    <a href="../about.html" class="nav-link" data-i18n="nav.about">关于我们</a>
+                    <a href="../contact.html" class="nav-link" data-i18n="nav.contact">联系我们</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon text-gray-600 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+                    </button>
+                    <div class="relative" id="languageSelector">
+                        <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-globe text-gray-600 dark:text-gray-300"></i>
+                        </button>
+                        <div class="language-dropdown absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 hidden transition-all duration-300 z-50">
+                            <a href="#" data-lang="zh" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">简体中文</a>
+                            <a href="#" data-lang="en" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">English</a>
+                            <a href="#" data-lang="ja" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">日本語</a>
+                            <a href="#" data-lang="ko" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">한국어</a>
+                        </div>
+                    </div>
+                    <button id="mobileMenuButton" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="md:hidden bg-white dark:bg-gray-800 hidden transition-all duration-300">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="../index.html" class="mobile-nav-link block py-2" data-i18n="nav.home">首页</a>
+                <a href="../tools.html" class="mobile-nav-link block py-2 active" data-i18n="nav.tools">工具库</a>
+                <a href="../about.html" class="mobile-nav-link block py-2" data-i18n="nav.about">关于我们</a>
+                <a href="../contact.html" class="mobile-nav-link block py-2" data-i18n="nav.contact">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 工具标题 -->
+    <section class="tool-header py-16">
+        <div class="tool-header-bg"></div>
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-4">
+                    <a href="../tools.html" class="text-white opacity-80 hover:opacity-100 transition-opacity flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i> <span data-i18n="toolDetail.backToTools">返回工具库</span>
+                    </a>
+                    <span class="mx-3 text-white opacity-50">|</span>
+                    <span class="text-white opacity-80" data-i18n="toolDetail.category">分类:</span>
+                    <a href="../tools.html?category=media" class="ml-2 bg-white bg-opacity-20 text-white text-sm px-3 py-1 rounded-full hover:bg-opacity-30 transition-colors">
+                        <i class="fas fa-photo-video mr-1"></i> 媒体处理
+                    </a>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">图像格式转换器</h1>
+                <p class="text-xl text-white opacity-90 mb-6">轻松转换图像格式，支持JPG、PNG、WebP、AVIF等多种格式间的互相转换。</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#try-now" class="btn-primary px-6 py-3">
+                        <i class="fas fa-rocket mr-2"></i> <span data-i18n="toolDetail.tryNow">立即使用</span>
+                    </a>
+                    <a href="#features" class="bg-white bg-opacity-20 text-white px-6 py-3 rounded-md hover:bg-opacity-30 transition-colors">
+                        <i class="fas fa-info-circle mr-2"></i> <span data-i18n="toolDetail.learnMore">了解更多</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具截图 -->
+    <section class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="tool-screenshot">
+                    <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="图像格式转换器界面" class="w-full h-auto rounded-md shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具信息 -->
+    <section id="features" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="toolDetail.features">功能特点</h2>
+                        <div class="space-y-6">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">多格式支持</h3>
+                                    <p class="feature-description">支持JPG、PNG、WebP、AVIF、GIF、SVG等多种格式之间的转换。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-compress-arrows-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">高质量压缩</h3>
+                                    <p class="feature-description">提供可调节的压缩选项，在保持图像质量的同时减小文件体积。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">本地处理</h3>
+                                    <p class="feature-description">所有图像处理在浏览器本地完成，无需上传，保护您的隐私。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">批量转换</h3>
+                                    <p class="feature-description">支持批量处理多个图像，提高工作效率。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="toolDetail.howToUse">使用方法</h2>
+                        <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">1</span>
+                                <div>
+                                    <p><strong>选择或拖放图像</strong> - 点击"选择文件"按钮或直接拖放图像到指定区域。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">2</span>
+                                <div>
+                                    <p><strong>选择目标格式</strong> - 从下拉菜单中选择您想要转换的目标格式。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">3</span>
+                                <div>
+                                    <p><strong>调整转换选项</strong> - 根据需要调整质量、尺寸等参数。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">4</span>
+                                <div>
+                                    <p><strong>点击转换</strong> - 点击"转换"按钮开始处理图像。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">5</span>
+                                <div>
+                                    <p><strong>下载结果</strong> - 处理完成后，点击"下载"按钮保存转换后的图像。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具示例 -->
+    <section id="try-now" class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="toolDetail.toolDemo">工具体验</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div class="p-6 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-center">
+                        <i class="fas fa-upload text-4xl text-gray-400 dark:text-gray-500 mb-4"></i>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">上传图像</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">拖放图像到此处或点击选择文件</p>
+                        <button class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors">
+                            <i class="fas fa-file-upload mr-2"></i> 选择文件
+                        </button>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">目标格式</label>
+                            <select class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors">
+                                <option value="png">PNG</option>
+                                <option value="jpg">JPG</option>
+                                <option value="webp">WebP</option>
+                                <option value="avif">AVIF</option>
+                                <option value="gif">GIF</option>
+                                <option value="svg">SVG</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">质量</label>
+                            <div class="flex items-center">
+                                <input type="range" min="1" max="100" value="80" class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full appearance-none cursor-pointer">
+                                <span class="ml-2 text-gray-700 dark:text-gray-300 w-8 text-center">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 flex justify-center">
+                        <button class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors">
+                            <i class="fas fa-exchange-alt mr-2"></i> 转换图像
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关工具 -->
+    <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="toolDetail.relatedTools">相关工具</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- 相关工具 1 -->
+                    <a href="image-editor.html" class="tool-card">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="在线图像编辑器" class="tool-card-image">
+                        </div>
+                        <div class="tool-card-content">
+                            <h3 class="tool-card-title">在线图像编辑器</h3>
+                            <p class="tool-card-description">专业的在线图像编辑工具，提供裁剪、滤镜、调整等多种功能。</p>
+                        </div>
+                    </a>
+                    
+                    <!-- 相关工具 2 -->
+                    <a href="video-compressor.html" class="tool-card">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1626379953822-baec19c3accd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="视频压缩工具" class="tool-card-image">
+                        </div>
+                        <div class="tool-card-content">
+                            <h3 class="tool-card-title">视频压缩工具</h3>
+                            <p class="tool-card-description">高效压缩视频文件，减小体积同时保持高质量。</p>
+                        </div>
+                    </a>
+                    
+                    <!-- 相关工具 3 -->
+                    <a href="svg-editor.html" class="tool-card">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="SVG编辑器" class="tool-card-image">
+                        </div>
+                        <div class="tool-card-content">
+                            <h3 class="tool-card-title">SVG编辑器</h3>
+                            <p class="tool-card-description">专业的矢量图形编辑工具，轻松创建和编辑SVG图像。</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用户评价 -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="toolDetail.userReviews">用户评价</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- 评价 1 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-content">"这个图像转换工具太好用了！我需要将几百张JPG图片转换为WebP格式，这个工具让我几分钟内就完成了这项任务，而且转换后的图片质量很好。"</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="张明" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">张明</span>
+                                <span class="testimonial-role">网站开发者</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 评价 2 -->
+                    <div class="testimonial-card">
+                        <p class="testimonial-content">"作为一名摄影师，我经常需要转换不同格式的图像文件。这个工具简单易用，最重要的是可以在本地处理，不需要上传我的作品到云端，保护了我的知识产权。"</p>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="李娜" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">李娜</span>
+                                <span class="testimonial-role">专业摄影师</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">X<span class="text-indigo-400">Tools</span></h3>
+                    <p class="text-gray-300 mb-4" data-i18n="footer.description">专业工具集，提升您的工作效率</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.tools">工具</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../tools.html?category=productivity" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.productivity">生产力工具</a></li>
+                        <li><a href="../tools.html?category=development" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.development">开发工具</a></li>
+                        <li><a href="../tools.html?category=design" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.design">设计工具</a></li>
+                        <li><a href="../tools.html?category=utility" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.utility">实用工具</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.company">公司</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../about.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.about">关于我们</a></li>
+                        <li><a href="../contact.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.contact">联系我们</a></li>
+                        <li><a href="../privacy.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.privacy">隐私政策</a></li>
+                        <li><a href="../terms.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.terms">使用条款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.subscribe">订阅更新</h4>
+                    <p class="text-gray-300 mb-4" data-i18n="footer.stayUpdated">及时获取最新工具和更新</p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full" data-i18n-placeholder="footer.emailPlaceholder">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 XTools. <span data-i18n="footer.rights">保留所有权利</span>.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS应用 - XTools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/tool-detail.css">
+    <link rel="stylesheet" href="css/tools-common.css">
+    <script src="js/theme.js" defer></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+</head>
+<body class="font-sans antialiased overflow-x-hidden">
+    <!-- 包含导航头部 -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-colors" style="background-color: var(--header-bg); backdrop-filter: blur(10px);">
+        <nav class="container mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="group flex items-center space-x-2">
+                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 group-hover:from-blue-400 group-hover:to-indigo-400 logo-text">X<span>Tools</span></span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link hover:text-blue-400 transition-colors">首页</a>
+                    <a href="tools.html" class="nav-link hover:text-blue-400 transition-colors active">应用</a>
+                    <a href="about.html" class="nav-link hover:text-blue-400 transition-colors">关于我们</a>
+                    <a href="contact.html" class="nav-link hover:text-blue-400 transition-colors">联系我们</a>
+                    <div class="flex items-center space-x-4">
+                        <button id="themeToggle" class="p-2 rounded-full hover:bg-white/10 transition-colors" title="切换主题">
+                            <i class="fas fa-palette text-white/80"></i>
+                        </button>
+                        <div class="relative" id="languageSelector">
+                            <button class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                                <i class="fas fa-globe text-white/80"></i>
+                            </button>
+                            <div class="language-dropdown absolute right-0 mt-2 w-40 bg-black/90 backdrop-blur-xl rounded-lg shadow-xl py-2 hidden">
+                                <a href="#" data-lang="zh" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">简体中文</a>
+                                <a href="#" data-lang="en" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">English</a>
+                                <a href="#" data-lang="ja" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">日本語</a>
+                                <a href="#" data-lang="ko" class="lang-option block px-4 py-2 text-sm hover:bg-white/10">한국어</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="mobileMenuButton" class="md:hidden p-2 hover:bg-white/10 rounded-lg transition-colors">
+                    <i class="fas fa-bars text-white/80"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 移动端菜单 -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 hidden">
+        <div class="container mx-auto px-6 py-20">
+            <div class="flex flex-col space-y-8 text-center text-2xl">
+                <a href="index.html" class="hover:text-blue-400 transition-colors">首页</a>
+                <a href="tools.html" class="hover:text-blue-400 transition-colors active">应用</a>
+                <a href="about.html" class="hover:text-blue-400 transition-colors">关于我们</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-colors">联系我们</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面内容 -->
+    <main class="pt-24">
+        <!-- 页面标题 -->
+        <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">我们的iOS应用</h1>
+                    <p class="text-xl opacity-90 max-w-3xl">精心打造的高品质iOS应用，为您的生活带来便利与乐趣</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用展示区域 -->
+        <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <!-- 应用类别标签 -->
+                <div class="mb-12 flex flex-wrap justify-center gap-4">
+                    <button class="app-filter-btn px-6 py-2 rounded-full bg-blue-600 text-white">全部</button>
+                    <button class="app-filter-btn px-6 py-2 rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors">生产力工具</button>
+                    <button class="app-filter-btn px-6 py-2 rounded-full bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors">图像处理</button>
+                </div>
+                
+                <!-- 应用列表 -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+                    <!-- 我物应用 -->
+                    <div class="app-showcase bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                        <div class="flex flex-col md:flex-row">
+                            <!-- 应用截图 -->
+                            <div class="md:w-2/5 relative">
+                                <div class="app-screenshot h-full">
+                                    <img src="img/app-screenshot-wowu.jpg" alt="我物应用截图" class="object-cover h-full w-full">
+                                </div>
+                                <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">资产管理</div>
+                            </div>
+                            
+                            <!-- 应用信息 -->
+                            <div class="md:w-3/5 p-6 md:p-8 flex flex-col">
+                                <div class="flex items-center mb-4">
+                                    <div class="app-icon w-16 h-16 rounded-xl overflow-hidden mr-4">
+                                        <img src="img/app-icon-wowu.png" alt="我物应用图标" class="w-full h-full">
+                                    </div>
+                                    <div>
+                                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">我物</h2>
+                                        <div class="flex items-center mt-1">
+                                            <div class="flex">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                                            </div>
+                                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">4.7 (234 评分)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">专业的资产管理工具，帮助您轻松跟踪和管理您的各类资产。支持多种资产类型，数据同步云端，使用简单直观。</p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">数据同步</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">多设备支持</span>
+                                    <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">图表分析</span>
+                                </div>
+                                
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <a href="https://apps.apple.com/app/id12345678" target="_blank" class="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition-colors">
+                                        <i class="fab fa-apple text-xl"></i>
+                                        <span>App Store 下载</span>
+                                    </a>
+                                    <a href="tools/wowu.html" class="flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 py-3 rounded-xl transition-colors">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>详细信息</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- SuperFilm应用 -->
+                    <div class="app-showcase bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+                        <div class="flex flex-col md:flex-row">
+                            <!-- 应用截图 -->
+                            <div class="md:w-2/5 relative">
+                                <div class="app-screenshot h-full">
+                                    <img src="img/app-screenshot-superfilm.jpg" alt="SuperFilm应用截图" class="object-cover h-full w-full">
+                                </div>
+                                <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm">图像处理</div>
+                            </div>
+                            
+                            <!-- 应用信息 -->
+                            <div class="md:w-3/5 p-6 md:p-8 flex flex-col">
+                                <div class="flex items-center mb-4">
+                                    <div class="app-icon w-16 h-16 rounded-xl overflow-hidden mr-4">
+                                        <img src="img/app-icon-superfilm.png" alt="SuperFilm应用图标" class="w-full h-full">
+                                    </div>
+                                    <div>
+                                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">SuperFilm</h2>
+                                        <div class="flex items-center mt-1">
+                                            <div class="flex">
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                                <i class="fas fa-star text-yellow-400"></i>
+                                            </div>
+                                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">4.9 (578 评分)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <p class="text-gray-600 dark:text-gray-300 mb-6 flex-grow">专业级照片滤镜工具，让您的照片焕发艺术光彩。提供多种专业滤镜和编辑工具，满足各种风格需求。</p>
+                                
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">专业滤镜</span>
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">一键美化</span>
+                                    <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">社交分享</span>
+                                </div>
+                                
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <a href="https://apps.apple.com/app/id87654321" target="_blank" class="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-xl transition-colors">
+                                        <i class="fab fa-apple text-xl"></i>
+                                        <span>App Store 下载</span>
+                                    </a>
+                                    <a href="tools/superfilm.html" class="flex items-center justify-center gap-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 py-3 rounded-xl transition-colors">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>详细信息</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 更多应用提示 -->
+                <div class="mt-16 text-center">
+                    <div class="inline-block px-8 py-4 bg-gray-100 dark:bg-gray-800 rounded-full mb-6">
+                        <span class="text-gray-600 dark:text-gray-400">
+                            <i class="fas fa-code-branch mr-2"></i>
+                            更多精彩应用正在开发中
+                        </span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        我们团队正在努力开发更多高品质iOS应用，敬请期待。
+                        如果您有任何建议或需求，欢迎随时与我们联系。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 应用优势 -->
+        <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">我们的应用优势</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">精心打造每一款应用，注重用户体验和实用功能</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 优势1 -->
+                    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-4">
+                            <i class="fas fa-paint-brush text-2xl text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">精致设计</h3>
+                        <p class="text-gray-600 dark:text-gray-400">每款应用都经过精心设计，简洁直观的界面让您使用更加顺畅</p>
+                    </div>
+                    
+                    <!-- 优势2 -->
+                    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                        <div class="w-16 h-16 flex items-center justify-center bg-green-100 dark:bg-green-900 rounded-full mb-4">
+                            <i class="fas fa-shield-alt text-2xl text-green-600 dark:text-green-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">安全可靠</h3>
+                        <p class="text-gray-600 dark:text-gray-400">高度重视用户隐私和数据安全，提供稳定可靠的服务</p>
+                    </div>
+                    
+                    <!-- 优势3 -->
+                    <div class="flex flex-col items-center text-center p-6 bg-gray-50 dark:bg-gray-700 rounded-xl">
+                        <div class="w-16 h-16 flex items-center justify-center bg-purple-100 dark:bg-purple-900 rounded-full mb-4">
+                            <i class="fas fa-sync-alt text-2xl text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">持续更新</h3>
+                        <p class="text-gray-600 dark:text-gray-400">定期更新和优化，不断增加新功能，持续提升用户体验</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 用户反馈 -->
+        <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">用户反馈</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">来自真实用户的评价和建议</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 用户评价1 -->
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">"我物是我用过的最好的资产管理工具，界面简洁，功能齐全，数据同步也很方便。强烈推荐！"</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+                                <div class="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">张先生</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">我物用户</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 用户评价2 -->
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">"SuperFilm的滤镜效果非常专业，一键就能让照片变得非常出色，是我拍照必备的应用。"</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+                                <div class="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">李女士</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">SuperFilm用户</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 用户评价3 -->
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="flex mr-2">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">4.5</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">"两款应用都非常好用，界面设计简洁大方，功能也很强大。期待团队的更多作品！"</p>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mr-3">
+                                <div class="w-full h-full flex items-center justify-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white">王先生</h4>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">忠实用户</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 底部区域 -->
+        <footer class="bg-gray-800 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">X<span class="text-indigo-400">Tools</span></h3>
+                        <p class="text-gray-300 mb-4">专业iOS应用开发，提升您的生活品质</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">应用</h4>
+                        <ul class="space-y-2">
+                            <li><a href="tools/wowu.html" class="text-gray-300 hover:text-white transition-colors">我物</a></li>
+                            <li><a href="tools/superfilm.html" class="text-gray-300 hover:text-white transition-colors">SuperFilm</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">即将推出</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">公司</h4>
+                        <ul class="space-y-2">
+                            <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors">关于我们</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">联系我们</a></li>
+                            <li><a href="privacy.html" class="text-gray-300 hover:text-white transition-colors">隐私政策</a></li>
+                            <li><a href="terms.html" class="text-gray-300 hover:text-white transition-colors">使用条款</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">订阅更新</h4>
+                        <p class="text-gray-300 mb-4">及时获取最新应用和更新</p>
+                        <form class="flex">
+                            <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2023 XTools. 保留所有权利.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // 应用筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.app-filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的活跃状态
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+                    });
+                    
+                    // 添加当前按钮的活跃状态
+                    this.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+                    this.classList.add('bg-blue-600', 'text-white');
+                    
+                    // 这里可以添加实际的筛选逻辑
+                    // const category = this.textContent.trim();
+                    // filterAppsByCategory(category);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

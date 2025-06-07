@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本分析工具 - XTools</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/themes.css">
+    <script src="../js/theme.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/main.js" defer></script>
+</head>
+<body class="font-sans antialiased bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <!-- 头部导航 -->
+    <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md transition-colors duration-300">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">X<span class="text-gray-800 dark:text-white">Tools</span></span>
+            </a>
+            <div class="flex items-center space-x-6">
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html" class="nav-link" data-i18n="nav.home">首页</a>
+                    <a href="../tools.html" class="nav-link active" data-i18n="nav.tools">工具库</a>
+                    <a href="../about.html" class="nav-link" data-i18n="nav.about">关于我们</a>
+                    <a href="../contact.html" class="nav-link" data-i18n="nav.contact">联系我们</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon text-gray-600 dark:hidden"></i>
+                        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+                    </button>
+                    <div class="relative" id="languageSelector">
+                        <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-globe text-gray-600 dark:text-gray-300"></i>
+                        </button>
+                        <div class="language-dropdown absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 hidden transition-all duration-300 z-50">
+                            <a href="#" data-lang="zh" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">简体中文</a>
+                            <a href="#" data-lang="en" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">English</a>
+                            <a href="#" data-lang="ja" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">日本語</a>
+                            <a href="#" data-lang="ko" class="lang-option block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">한국어</a>
+                        </div>
+                    </div>
+                    <button id="mobileMenuButton" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="md:hidden bg-white dark:bg-gray-800 hidden transition-all duration-300">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="../index.html" class="mobile-nav-link block py-2" data-i18n="nav.home">首页</a>
+                <a href="../tools.html" class="mobile-nav-link block py-2 active" data-i18n="nav.tools">工具库</a>
+                <a href="../about.html" class="mobile-nav-link block py-2" data-i18n="nav.about">关于我们</a>
+                <a href="../contact.html" class="mobile-nav-link block py-2" data-i18n="nav.contact">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 工具标题 -->
+    <section class="tool-header py-16">
+        <div class="tool-header-bg"></div>
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="flex items-center mb-4">
+                    <a href="../tools.html" class="text-white opacity-80 hover:opacity-100 transition-opacity flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i> <span data-i18n="toolDetail.backToTools">返回工具库</span>
+                    </a>
+                    <span class="mx-3 text-white opacity-50">|</span>
+                    <span class="text-white opacity-80" data-i18n="toolDetail.category">分类:</span>
+                    <a href="../tools.html?category=utility" class="ml-2 bg-white bg-opacity-20 text-white text-sm px-3 py-1 rounded-full hover:bg-opacity-30 transition-colors">
+                        <i class="fas fa-tools mr-1"></i> 实用工具
+                    </a>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold text-white mb-4" data-i18n="textAnalyzer.title">文本分析工具</h1>
+                <p class="text-xl text-white opacity-90 mb-6" data-i18n="textAnalyzer.subtitle">深入分析文本内容，提供字数统计、关键词提取、情感分析等功能。</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a href="#try-now" class="btn-primary px-6 py-3">
+                        <i class="fas fa-rocket mr-2"></i> <span data-i18n="toolDetail.tryNow">立即使用</span>
+                    </a>
+                    <a href="#features" class="bg-white bg-opacity-20 text-white px-6 py-3 rounded-md hover:bg-opacity-30 transition-colors">
+                        <i class="fas fa-info-circle mr-2"></i> <span data-i18n="toolDetail.learnMore">了解更多</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具信息 -->
+    <section id="features" class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="toolDetail.features">功能特点</h2>
+                        <div class="space-y-6">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">全面的文本统计</h3>
+                                    <p class="feature-description">计算字符数、单词数、句子数和段落数，包括含空格和不含空格的统计。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">关键词分析</h3>
+                                    <p class="feature-description">自动提取文本中的关键词和短语，分析词频和重要性。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">情感分析</h3>
+                                    <p class="feature-description">判断文本的情感倾向，了解文本是积极、消极还是中性的。</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-chart-bar"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 class="feature-title">可视化统计</h3>
+                                    <p class="feature-description">通过图表直观展示文本分析结果，便于理解和使用。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="toolDetail.howToUse">使用方法</h2>
+                        <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">1</span>
+                                <div>
+                                    <p><strong>输入或粘贴文本</strong> - 在文本框中输入或粘贴您想要分析的文本内容。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">2</span>
+                                <div>
+                                    <p><strong>选择分析选项</strong> - 选择您需要的分析类型，如基础统计、关键词提取或情感分析。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">3</span>
+                                <div>
+                                    <p><strong>点击分析按钮</strong> - 点击"分析文本"按钮开始处理。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">4</span>
+                                <div>
+                                    <p><strong>查看分析结果</strong> - 查看详细的分析结果和可视化图表。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="flex-shrink-0 w-8 h-8 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 rounded-full flex items-center justify-center mr-3 font-semibold">5</span>
+                                <div>
+                                    <p><strong>导出结果</strong> - 如需要，可以导出分析结果为PDF或CSV格式。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工具示例 -->
+    <section id="try-now" class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="toolDetail.toolDemo">工具体验</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">输入文本</label>
+                        <textarea id="textInput" rows="8" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors" data-i18n-placeholder="textAnalyzer.inputPlaceholder" placeholder="在此输入或粘贴您想要分析的文本..."></textarea>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" checked>
+                                <span class="ml-2 text-gray-700 dark:text-gray-300">基础统计</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" checked>
+                                <span class="ml-2 text-gray-700 dark:text-gray-300">关键词分析</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" checked>
+                                <span class="ml-2 text-gray-700 dark:text-gray-300">情感分析</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <button id="analyzeBtn" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors">
+                            <i class="fas fa-chart-line mr-2"></i> <span data-i18n="textAnalyzer.analyzeButton">分析文本</span>
+                        </button>
+                    </div>
+                    
+                    <div id="analysisResults" class="mt-8 hidden">
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4" data-i18n="textAnalyzer.results">分析结果</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3" data-i18n="textAnalyzer.basicStats">基础统计</h4>
+                                    <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                        <li><span data-i18n="textAnalyzer.charCount">字符数（含空格）</span>: <span class="font-medium text-indigo-600 dark:text-indigo-400">0</span></li>
+                                        <li><span data-i18n="textAnalyzer.charCountNoSpaces">字符数（不含空格）</span>: <span class="font-medium text-indigo-600 dark:text-indigo-400">0</span></li>
+                                        <li><span data-i18n="textAnalyzer.wordCount">单词数</span>: <span class="font-medium text-indigo-600 dark:text-indigo-400">0</span></li>
+                                        <li><span data-i18n="textAnalyzer.sentenceCount">句子数</span>: <span class="font-medium text-indigo-600 dark:text-indigo-400">0</span></li>
+                                        <li><span data-i18n="textAnalyzer.paragraphCount">段落数</span>: <span class="font-medium text-indigo-600 dark:text-indigo-400">0</span></li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3" data-i18n="textAnalyzer.keywordAnalysis">关键词分析</h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        <p data-i18n="textAnalyzer.waitingAnalysis">等待分析...</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg md:col-span-2">
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3" data-i18n="textAnalyzer.sentimentAnalysis">情感分析</h4>
+                                    <div class="text-gray-600 dark:text-gray-300">
+                                        <p data-i18n="textAnalyzer.waitingAnalysis">等待分析...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 flex justify-end">
+                                <button class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors mr-3">
+                                    <i class="fas fa-file-pdf mr-2"></i> <span data-i18n="textAnalyzer.exportPDF">导出PDF</span>
+                                </button>
+                                <button class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors">
+                                    <i class="fas fa-file-csv mr-2"></i> <span data-i18n="textAnalyzer.exportCSV">导出CSV</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部区域 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">X<span class="text-indigo-400">Tools</span></h3>
+                    <p class="text-gray-300 mb-4" data-i18n="footer.description">专业工具集，提升您的工作效率</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.tools">工具</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../tools.html?category=productivity" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.productivity">生产力工具</a></li>
+                        <li><a href="../tools.html?category=development" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.development">开发工具</a></li>
+                        <li><a href="../tools.html?category=design" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.design">设计工具</a></li>
+                        <li><a href="../tools.html?category=utility" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.utility">实用工具</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.company">公司</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../about.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.about">关于我们</a></li>
+                        <li><a href="../contact.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.contact">联系我们</a></li>
+                        <li><a href="../privacy.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.privacy">隐私政策</a></li>
+                        <li><a href="../terms.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="footer.terms">使用条款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4" data-i18n="footer.subscribe">订阅更新</h4>
+                    <p class="text-gray-300 mb-4" data-i18n="footer.stayUpdated">及时获取最新工具和更新</p>
+                    <form class="flex">
+                        <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full" data-i18n-placeholder="footer.emailPlaceholder">
+                        <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 XTools. <span data-i18n="footer.rights">保留所有权利</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 文本分析工具特定JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const textInput = document.getElementById('textInput');
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            const analysisResults = document.getElementById('analysisResults');
+            
+            // 分析按钮点击事件
+            if (analyzeBtn) {
+                analyzeBtn.addEventListener('click', function() {
+                    // 获取文本内容
+                    const text = textInput.value.trim();
+                    
+                    if (!text) {
+                        alert(getTranslation('textAnalyzer.emptyTextAlert', '请输入需要分析的文本！'));
+                        return;
+                    }
+                    
+                    // 执行分析
+                    const results = analyzeText(text);
+                    
+                    // 显示结果区域
+                    if (analysisResults) {
+                        // 更新基础统计数据
+                        const basicStatsElements = analysisResults.querySelectorAll('.bg-gray-50:first-child li span:last-child');
+                        if (basicStatsElements.length >= 5) {
+                            basicStatsElements[0].textContent = results.charCount;
+                            basicStatsElements[1].textContent = results.charCountNoSpaces;
+                            basicStatsElements[2].textContent = results.wordCount;
+                            basicStatsElements[3].textContent = results.sentenceCount;
+                            basicStatsElements[4].textContent = results.paragraphCount;
+                        }
+                        
+                        // 更新关键词分析
+                        const keywordAnalysisContainer = analysisResults.querySelector('.bg-gray-50:nth-child(2) div');
+                        if (keywordAnalysisContainer) {
+                            keywordAnalysisContainer.innerHTML = generateKeywordHTML(results.keywords);
+                        }
+                        
+                        // 更新情感分析
+                        const sentimentAnalysisContainer = analysisResults.querySelector('.bg-gray-50:nth-child(3) div');
+                        if (sentimentAnalysisContainer) {
+                            sentimentAnalysisContainer.innerHTML = generateSentimentHTML(results.sentiment);
+                        }
+                        
+                        // 显示结果区域
+                        analysisResults.classList.remove('hidden');
+                        
+                        // 平滑滚动到结果区域
+                        analysisResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            }
+            
+            // 文本分析函数
+            function analyzeText(text) {
+                // 基础统计
+                const charCount = text.length;
+                const charCountNoSpaces = text.replace(/\s/g, '').length;
+                const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
+                const sentenceCount = text.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0).length;
+                const paragraphCount = text.split(/\n\s*\n/).filter(paragraph => paragraph.trim().length > 0).length || 1;
+                
+                // 关键词分析（简化实现）
+                const keywords = extractKeywords(text);
+                
+                // 情感分析（简化实现）
+                const sentiment = analyzeSentiment(text);
+                
+                return {
+                    charCount,
+                    charCountNoSpaces,
+                    wordCount,
+                    sentenceCount,
+                    paragraphCount,
+                    keywords,
+                    sentiment
+                };
+            }
+            
+            // 提取关键词（简化实现）
+            function extractKeywords(text) {
+                // 移除常见的停用词
+                const stopWords = new Set([
+                    "a", "an", "the", "and", "or", "but", "in", "on", "at", "to", "for", "with", "by", "about", "as",
+                    "是", "的", "了", "在", "有", "和", "与", "这", "那", "这些", "那些", "他", "她", "它", "我", "你", "我们", "你们"
+                ]);
+                
+                // 分词并计数
+                const words = text.toLowerCase()
+                    .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
+                    .split(/\s+/)
+                    .filter(word => word.length > 1 && !stopWords.has(word));
+                
+                const wordCounts = {};
+                for (const word of words) {
+                    wordCounts[word] = (wordCounts[word] || 0) + 1;
+                }
+                
+                // 转换为数组并排序
+                const keywordArray = Object.entries(wordCounts)
+                    .map(([word, count]) => ({ word, count }))
+                    .sort((a, b) => b.count - a.count)
+                    .slice(0, 10); // 取前10个词
+                
+                return keywordArray;
+            }
+            
+            // 情感分析（简化实现）
+            function analyzeSentiment(text) {
+                const positiveWords = new Set([
+                    "good", "great", "excellent", "amazing", "wonderful", "happy", "love", "like", "best", "beautiful",
+                    "好", "优秀", "卓越", "精彩", "美好", "幸福", "喜欢", "爱", "最佳", "美丽"
+                ]);
+                
+                const negativeWords = new Set([
+                    "bad", "terrible", "awful", "horrible", "poor", "hate", "dislike", "worst", "ugly", "sad",
+                    "糟糕", "可怕", "差劲", "讨厌", "不喜欢", "恨", "最差", "丑陋", "悲伤"
+                ]);
+                
+                // 简单的词汇计数方法
+                let positiveCount = 0;
+                let negativeCount = 0;
+                
+                const words = text.toLowerCase().split(/\s+/);
+                for (const word of words) {
+                    const cleanWord = word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+                    if (positiveWords.has(cleanWord)) positiveCount++;
+                    if (negativeWords.has(cleanWord)) negativeCount++;
+                }
+                
+                // 确定情感
+                let sentiment = "neutral";
+                let score = 0;
+                
+                if (positiveCount > negativeCount) {
+                    sentiment = "positive";
+                    score = Math.min(1, (positiveCount - negativeCount) / words.length * 10);
+                } else if (negativeCount > positiveCount) {
+                    sentiment = "negative";
+                    score = -Math.min(1, (negativeCount - positiveCount) / words.length * 10);
+                }
+                
+                return {
+                    sentiment,
+                    score,
+                    positiveCount,
+                    negativeCount
+                };
+            }
+            
+            // 生成关键词HTML
+            function generateKeywordHTML(keywords) {
+                if (!keywords || keywords.length === 0) {
+                    return `<p>${getTranslation('textAnalyzer.noKeywords', '未发现显著关键词')}</p>`;
+                }
+                
+                let html = '<div class="flex flex-wrap gap-2">';
+                
+                for (const {word, count} of keywords) {
+                    const size = Math.max(0.8, Math.min(1.6, 0.8 + count / 10));
+                    html += `
+                        <span class="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-md" 
+                              style="font-size: ${size}rem">
+                            ${word} <span class="text-indigo-600 dark:text-indigo-400 text-xs">${count}</span>
+                        </span>
+                    `;
+                }
+                
+                html += '</div>';
+                return html;
+            }
+            
+            // 生成情感分析HTML
+            function generateSentimentHTML(sentiment) {
+                if (!sentiment) {
+                    return `<p>${getTranslation('textAnalyzer.noSentiment', '无法分析情感倾向')}</p>`;
+                }
+                
+                let icon, color, label;
+                
+                if (sentiment.sentiment === 'positive') {
+                    icon = 'fa-smile';
+                    color = 'text-green-500';
+                    label = getTranslation('textAnalyzer.positiveLabel', '积极');
+                } else if (sentiment.sentiment === 'negative') {
+                    icon = 'fa-frown';
+                    color = 'text-red-500';
+                    label = getTranslation('textAnalyzer.negativeLabel', '消极');
+                } else {
+                    icon = 'fa-meh';
+                    color = 'text-gray-500';
+                    label = getTranslation('textAnalyzer.neutralLabel', '中性');
+                }
+                
+                // 计算情感强度条的宽度
+                const scorePercent = Math.abs(sentiment.score) * 100;
+                const scoreDirection = sentiment.score >= 0 ? 'right' : 'left';
+                
+                return `
+                    <div class="flex items-center mb-4">
+                        <i class="fas ${icon} text-3xl ${color} mr-3"></i>
+                        <div>
+                            <div class="font-semibold ${color}">${label}</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                ${getTranslation('textAnalyzer.sentimentScore', '情感强度')}: ${Math.abs(sentiment.score).toFixed(2)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden mb-4">
+                        <div class="${sentiment.score >= 0 ? 'bg-green-500' : 'bg-red-500'}" 
+                             style="width: ${scorePercent}%; height: 100%; ${scoreDirection === 'left' ? 'float: right' : ''}"></div>
+                    </div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">
+                        ${getTranslation('textAnalyzer.positiveWords', '积极词汇')}: ${sentiment.positiveCount} | 
+                        ${getTranslation('textAnalyzer.negativeWords', '消极词汇')}: ${sentiment.negativeCount}
+                    </div>
+                `;
+            }
+            
+            // 获取翻译文本的辅助函数
+            function getTranslation(key, fallback) {
+                if (window.i18n && window.i18n.getTranslation) {
+                    return window.i18n.getTranslation(key) || fallback;
+                }
+                return fallback;
+            }
+        });
+    </script>
+</body>
+</html> 

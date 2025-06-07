@@ -1,0 +1,487 @@
+/* 通用工具页面样式 */
+
+/* 确保基本内容区域文字可见 */
+.tool-container {
+    color: var(--primary-text) !important;
+    background-color: var(--primary-bg);
+}
+
+/* 工具页面标题 */
+.tool-page-title {
+    color: var(--primary-text) !important;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.tool-page-description {
+    color: var(--secondary-text) !important;
+    font-size: 1.1rem;
+}
+
+/* 工具操作区 */
+.tool-operation-area {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* 工具区块标题 */
+.tool-section-title {
+    color: var(--primary-text) !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.tool-section-description {
+    color: var(--secondary-text) !important;
+    margin-bottom: 1.5rem;
+}
+
+/* 表单元素 */
+.tool-input,
+.tool-select,
+.tool-textarea {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--primary-text) !important;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.tool-input:focus,
+.tool-select:focus,
+.tool-textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.2);
+    outline: none;
+}
+
+.tool-input::placeholder,
+.tool-textarea::placeholder {
+    color: var(--muted-text);
+}
+
+/* 工具按钮 */
+.tool-button {
+    background-color: var(--button-primary-bg);
+    color: white !important;
+    border: none;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tool-button:hover {
+    background-color: var(--button-primary-hover);
+    transform: translateY(-2px);
+}
+
+.tool-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.tool-button-secondary {
+    background-color: var(--button-secondary-bg);
+    color: var(--primary-text) !important;
+    border: 1px solid var(--border-color);
+}
+
+.tool-button-secondary:hover {
+    background-color: var(--button-secondary-hover);
+}
+
+/* 工具结果区 */
+.tool-result-area {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.tool-result-title {
+    color: var(--primary-text) !important;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.tool-result-content {
+    color: var(--secondary-text) !important;
+}
+
+/* 功能特点和使用方法 */
+.tool-features {
+    margin-bottom: 2rem;
+}
+
+.feature-box {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.feature-box h3 {
+    color: var(--primary-text) !important;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-box p {
+    color: var(--secondary-text) !important;
+}
+
+.usage-steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+}
+
+.usage-step {
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.usage-step:before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    top: 50%;
+    left: 1.25rem;
+    transform: translateY(-50%);
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.usage-step h3 {
+    color: var(--primary-text) !important;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.usage-step p {
+    color: var(--secondary-text) !important;
+    margin: 0;
+}
+
+.usage-step:hover {
+    border-color: var(--border-hover);
+    transform: translateX(4px);
+}
+
+/* 警告和提示 */
+.tool-alert {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.tool-alert-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.tool-alert-content {
+    flex-grow: 1;
+}
+
+.tool-alert-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.tool-alert-info {
+    background-color: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.tool-alert-info .tool-alert-icon {
+    color: #3b82f6;
+}
+
+.tool-alert-info .tool-alert-title {
+    color: #3b82f6;
+}
+
+.tool-alert-success {
+    background-color: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.tool-alert-success .tool-alert-icon {
+    color: #22c55e;
+}
+
+.tool-alert-success .tool-alert-title {
+    color: #22c55e;
+}
+
+.tool-alert-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.tool-alert-warning .tool-alert-icon {
+    color: #f59e0b;
+}
+
+.tool-alert-warning .tool-alert-title {
+    color: #f59e0b;
+}
+
+.tool-alert-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.tool-alert-error .tool-alert-icon {
+    color: #ef4444;
+}
+
+.tool-alert-error .tool-alert-title {
+    color: #ef4444;
+}
+
+/* 文本对比度优化 - 增强版 */
+/* 加强所有深色主题下的文本对比度 */
+.dark .text-gray-600,
+.dark p.text-gray-600 {
+    color: rgba(255, 255, 255, 0.9) !important; /* 大幅增加对比度 */
+}
+
+.dark .text-gray-500,
+.dark p.text-gray-500 {
+    color: rgba(255, 255, 255, 0.85) !important; /* 增加对比度 */
+}
+
+.dark .text-gray-400,
+.dark p.text-gray-400 {
+    color: rgba(255, 255, 255, 0.8) !important; /* 增加对比度 */
+}
+
+.dark .text-gray-300,
+.dark p.text-gray-300 {
+    color: rgba(255, 255, 255, 0.95) !important; /* 确保在深色背景上清晰可见 */
+}
+
+/* 增强卡片内容可见性 */
+.dark .bg-gray-50 {
+    background-color: rgba(31, 41, 55, 0.8) !important; /* 深色主题下卡片背景更深 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .bg-gray-50 p, 
+.dark .bg-gray-700 p {
+    color: rgba(255, 255, 255, 0.95) !important; /* 深色卡片中的段落文字显著加亮 */
+    font-weight: 400;
+}
+
+.dark .bg-gray-50 h3, 
+.dark .bg-gray-700 h3 {
+    color: white !important; /* 深色卡片中的标题确保为白色 */
+    font-weight: 600;
+}
+
+/* 功能特点卡片的图标颜色增强 */
+.dark .feature-card .text-purple-600.dark\:text-purple-400,
+.dark .feature-card .text-blue-600.dark\:text-blue-400 {
+    color: white !important; /* 确保图标在深色主题下可见 */
+}
+
+/* 确保渐变背景上的文字清晰可见 */
+.bg-gradient-to-r.from-purple-600.to-pink-700 h1,
+.bg-gradient-to-r.from-purple-600.to-pink-700 p,
+.bg-gradient-to-r.from-blue-600.to-indigo-700 h1,
+.bg-gradient-to-r.from-blue-600.to-indigo-700 p {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* 添加文字阴影增加对比度 */
+}
+
+/* 增强深色主题下所有卡片的边框可见性 */
+.dark .feature-card,
+.dark .testimonial-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 用户评价区块文字优化增强 */
+.dark .bg-white.dark\:bg-gray-800 {
+    background-color: rgba(31, 41, 55, 0.9) !important; /* 增强背景对比度 */
+}
+
+.dark .bg-gray-800 p.text-gray-600,
+.dark .bg-gray-800 p.text-gray-300 {
+    color: rgba(255, 255, 255, 0.95) !important; /* 大幅增加评价文字的对比度 */
+}
+
+.dark .bg-gray-800 h4.text-gray-900,
+.dark h4.text-gray-900.dark\:text-white {
+    color: white !important; /* 确保用户名称在深色主题下为白色 */
+    font-weight: 600;
+}
+
+/* 全局文本可见性增强 */
+.dark .prose p,
+.dark .prose li,
+.dark .card-content p {
+    color: rgba(255, 255, 255, 0.95) !important; /* 大幅提高段落对比度 */
+}
+
+/* 确保深色主题下评分可见 */
+.dark .fa-star,
+.dark .fa-star-half-alt {
+    color: #ffd700 !important; /* 更亮的金黄色星星 */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* 添加阴影增加辨识度 */
+}
+
+/* 确保深色主题下不同主题切换后的一致性 */
+[data-theme="purple"] .dark .text-gray-600,
+[data-theme="teal"] .dark .text-gray-600,
+[data-theme="red"] .dark .text-gray-600,
+[data-theme="green"] .dark .text-gray-600 {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 适应不同主题下的图标颜色 */
+[data-theme="purple"] .feature-card .dark\:text-purple-400,
+[data-theme="purple"] .feature-card .dark\:text-blue-400 {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 确保滚动截图区域的文字说明在深色主题下可见 */
+.dark .snap-center .rounded-2xl + p {
+    color: white !important;
+}
+
+/* 应用截图区域优化 */
+.dark .bg-gray-100.dark\:bg-gray-700 {
+    background-color: rgba(55, 65, 81, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 确保主题切换按钮区域可见 */
+.dark #themeToggle i,
+.dark #languageSelector i {
+    color: white !important;
+}
+
+/* 增强深色模式下标题的可读性 */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 确保深色主题下按钮文字可见 */
+.dark .download-btn {
+    color: rgb(126, 34, 206) !important;
+    font-weight: 600;
+}
+
+/* 增强下载区域可见性 */
+.dark .download-section {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* 确保文本适当的行高和字间距，提高可读性 */
+.dark p,
+.dark li {
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+}
+
+/* 确保标题文字在深色模式下足够醒目 */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+    color: white;
+    font-weight: 600;
+}
+
+/* 下载按钮文字对比度 */
+.bg-white.text-blue-600:hover,
+.bg-white.text-purple-600:hover {
+    background-color: rgba(255, 255, 255, 0.9) !important; /* 轻微降低按钮亮度以减少刺眼感 */
+}
+
+/* 页面通用样式增强 */
+.dark main {
+    background-color: rgb(17, 24, 39) !important; /* 确保深色主题背景足够深 */
+}
+
+/* 深色模式下的页面过渡 */
+.transition-colors {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* 深色主题下表单元素 */
+.dark input[type="email"] {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* 深色主题下表格样式（如果有） */
+.dark table th {
+    color: white;
+    background-color: rgba(31, 41, 55, 0.6);
+}
+
+.dark table td {
+    color: rgba(229, 231, 235, 0.9);
+    background-color: rgba(31, 41, 55, 0.3);
+}
+
+/* 悬停状态样式增强 */
+.dark a:hover {
+    opacity: 0.9;
+}
+
+/* 确保深色主题模式下按钮文字可见 */
+.dark .bg-indigo-600,
+.dark .bg-blue-600,
+.dark .bg-purple-600 {
+    color: white !important;
+} 

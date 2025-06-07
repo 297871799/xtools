@@ -1,0 +1,500 @@
+/* 主题变量 */
+:root {
+    /* 默认主题（深蓝/靛蓝）*/
+    --primary-bg: #000000;
+    --secondary-bg: #0f0f1a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.6);
+    --muted-text: rgba(255, 255, 255, 0.4);
+    
+    --accent-color: #0066ff;
+    --accent-secondary: #4d79ff;
+    --accent-gradient-start: #0066ff;
+    --accent-gradient-mid: #5c33ea;
+    --accent-gradient-end: #a855f7;
+    
+    --header-bg: rgba(0, 0, 0, 0.7);
+    --button-primary-bg: #0066ff;
+    --button-primary-hover: #0052cc;
+    --button-secondary-bg: rgba(255, 255, 255, 0.1);
+    --button-secondary-hover: rgba(255, 255, 255, 0.15);
+    
+    --gradient-overlay: radial-gradient(circle at center, rgba(0, 102, 255, 0.2) 0%, transparent 70%, transparent 100%);
+    --section-gradient: rgba(0, 102, 255, 0.05);
+    
+    /* 主题选择菜单背景色 */
+    --theme-menu-bg: rgba(0, 0, 0, 0.95);
+    --theme-menu-hover: rgba(255, 255, 255, 0.1);
+    --theme-menu-text: rgba(255, 255, 255, 0.9);
+    --theme-menu-text-muted: rgba(255, 255, 255, 0.6);
+}
+
+/* 深紫色主题 - 优化文本对比度 */
+[data-theme="purple"] {
+    --primary-bg: #0c0414;
+    --secondary-bg: #130a24;
+    --card-bg: rgba(31, 41, 55, 0.7); /* 增加卡片背景不透明度 */
+    --border-color: rgba(255, 255, 255, 0.15); /* 提高边框对比度 */
+    --border-hover: rgba(255, 255, 255, 0.25); /* 提高悬停边框对比度 */
+    
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.85); /* 提高次要文本对比度 */
+    --muted-text: rgba(255, 255, 255, 0.7); /* 提高静音文本对比度 */
+    
+    --accent-color: #d946ef; /* 更亮的紫色 */
+    --accent-secondary: #f472b6; /* 更亮的粉色 */
+    --accent-gradient-start: #a855f7; 
+    --accent-gradient-mid: #d946ef;
+    --accent-gradient-end: #f472b6;
+    
+    --header-bg: rgba(12, 4, 20, 0.9); /* 增加头部背景不透明度 */
+    --button-primary-bg: #a855f7;
+    --button-primary-hover: #d946ef;
+    --button-secondary-bg: rgba(255, 255, 255, 0.15); /* 提高按钮背景对比度 */
+    --button-secondary-hover: rgba(255, 255, 255, 0.25);
+    
+    --gradient-overlay: radial-gradient(circle at center, rgba(168, 85, 247, 0.3) 0%, transparent 70%, transparent 100%); /* 增加渐变覆盖对比度 */
+    --section-gradient: rgba(168, 85, 247, 0.1);
+}
+
+/* 深青色主题 */
+[data-theme="teal"] {
+    --primary-bg: #042f2e;
+    --secondary-bg: #064e3b;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.6);
+    --muted-text: rgba(255, 255, 255, 0.4);
+    
+    --accent-color: #14b8a6;
+    --accent-secondary: #0d9488;
+    --accent-gradient-start: #14b8a6;
+    --accent-gradient-mid: #0d9488;
+    --accent-gradient-end: #0f766e;
+    
+    --header-bg: rgba(4, 47, 46, 0.7);
+    --button-primary-bg: #14b8a6;
+    --button-primary-hover: #0d9488;
+    --button-secondary-bg: rgba(255, 255, 255, 0.1);
+    --button-secondary-hover: rgba(255, 255, 255, 0.15);
+    
+    --gradient-overlay: radial-gradient(circle at center, rgba(20, 184, 166, 0.2) 0%, transparent 70%, transparent 100%);
+    --section-gradient: rgba(20, 184, 166, 0.05);
+}
+
+/* 深红色主题 */
+[data-theme="red"] {
+    --primary-bg: #250606;
+    --secondary-bg: #450a0a;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.6);
+    --muted-text: rgba(255, 255, 255, 0.4);
+    
+    --accent-color: #ef4444;
+    --accent-secondary: #dc2626;
+    --accent-gradient-start: #ef4444;
+    --accent-gradient-mid: #dc2626;
+    --accent-gradient-end: #b91c1c;
+    
+    --header-bg: rgba(37, 6, 6, 0.7);
+    --button-primary-bg: #ef4444;
+    --button-primary-hover: #dc2626;
+    --button-secondary-bg: rgba(255, 255, 255, 0.1);
+    --button-secondary-hover: rgba(255, 255, 255, 0.15);
+    
+    --gradient-overlay: radial-gradient(circle at center, rgba(239, 68, 68, 0.2) 0%, transparent 70%, transparent 100%);
+    --section-gradient: rgba(239, 68, 68, 0.05);
+}
+
+/* 深绿色主题 */
+[data-theme="green"] {
+    --primary-bg: #052e16;
+    --secondary-bg: #064e3b;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-hover: rgba(255, 255, 255, 0.2);
+    
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.6);
+    --muted-text: rgba(255, 255, 255, 0.4);
+    
+    --accent-color: #22c55e;
+    --accent-secondary: #16a34a;
+    --accent-gradient-start: #22c55e;
+    --accent-gradient-mid: #16a34a;
+    --accent-gradient-end: #15803d;
+    
+    --header-bg: rgba(5, 46, 22, 0.7);
+    --button-primary-bg: #22c55e;
+    --button-primary-hover: #16a34a;
+    --button-secondary-bg: rgba(255, 255, 255, 0.1);
+    --button-secondary-hover: rgba(255, 255, 255, 0.15);
+    
+    --gradient-overlay: radial-gradient(circle at center, rgba(34, 197, 94, 0.2) 0%, transparent 70%, transparent 100%);
+    --section-gradient: rgba(34, 197, 94, 0.05);
+}
+
+/* 浅色主题 */
+[data-theme="light"] {
+    --primary-bg: #f8fafc;
+    --secondary-bg: #f1f5f9;
+    --card-bg: rgba(0, 0, 0, 0.02);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-hover: rgba(0, 0, 0, 0.2);
+    
+    --primary-text: #0f172a;
+    --secondary-text: rgba(15, 23, 42, 0.7);
+    --muted-text: rgba(15, 23, 42, 0.5);
+    
+    --accent-color: #0066ff;
+    --accent-secondary: #4d79ff;
+    --accent-gradient-start: #0066ff;
+    --accent-gradient-mid: #5c33ea;
+    --accent-gradient-end: #a855f7;
+    
+    --header-bg: rgba(248, 250, 252, 0.8);
+    --button-primary-bg: #0066ff;
+    --button-primary-hover: #0052cc;
+    --button-secondary-bg: rgba(0, 0, 0, 0.05);
+    --button-secondary-hover: rgba(0, 0, 0, 0.1);
+    
+    --gradient-overlay: radial-gradient(circle at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%, transparent 100%);
+    --section-gradient: rgba(0, 102, 255, 0.03);
+    
+    /* 主题选择菜单背景色 */
+    --theme-menu-bg: rgba(255, 255, 255, 0.95);
+    --theme-menu-hover: rgba(0, 0, 0, 0.05);
+    --theme-menu-text: rgba(15, 23, 42, 0.9);
+    --theme-menu-text-muted: rgba(15, 23, 42, 0.6);
+}
+
+/* 应用主题色到各元素 */
+.btn-primary {
+    background-color: var(--theme-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--theme-primary-hover);
+}
+
+.nav-link::after {
+    background-color: var(--theme-primary);
+}
+
+.nav-link.active {
+    color: var(--theme-primary);
+}
+
+.dark .nav-link.active {
+    color: var(--theme-secondary);
+}
+
+.mobile-nav-link.active {
+    color: var(--theme-primary);
+}
+
+.dark .mobile-nav-link.active {
+    color: var(--theme-secondary);
+}
+
+.tool-card-category {
+    color: var(--theme-primary);
+}
+
+.dark .tool-card-category {
+    color: var(--theme-secondary);
+}
+
+.category-icon {
+    color: var(--theme-primary);
+}
+
+.dark .category-icon {
+    color: var(--theme-secondary);
+}
+
+.hero-section {
+    background-image: var(--theme-gradient);
+}
+
+.tool-header {
+    background-color: var(--theme-primary);
+}
+
+.tool-header-bg {
+    background-image: var(--theme-gradient);
+}
+
+.feature-icon {
+    color: var(--theme-primary);
+}
+
+.dark .feature-icon {
+    color: var(--theme-secondary);
+}
+
+.tool-group-header {
+    background-color: var(--theme-primary);
+}
+
+.tool-group-icon {
+    color: var(--theme-primary);
+}
+
+.dark .tool-group-icon {
+    color: var(--theme-secondary);
+}
+
+footer .btn-primary {
+    background-color: var(--theme-primary);
+}
+
+footer .btn-primary:hover {
+    background-color: var(--theme-primary-hover);
+}
+
+/* 主题切换器样式 */
+.theme-selector {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.theme-option {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.theme-option.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px var(--accent-secondary);
+}
+
+.theme-option:hover {
+    transform: scale(1.1);
+}
+
+.theme-default {
+    background: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 100%);
+}
+
+.theme-red {
+    background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+}
+
+.theme-green {
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+}
+
+.theme-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+}
+
+.theme-orange {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+}
+
+.theme-pink {
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+}
+
+/* 主题菜单样式 - 修复深色主题下文字不清问题 */
+#themeMenu {
+    background-color: var(--theme-menu-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+}
+
+#themeMenu button {
+    color: var(--theme-menu-text);
+}
+
+#themeMenu button:hover {
+    background-color: var(--theme-menu-hover);
+}
+
+#themeMenu .menu-title {
+    color: var(--theme-menu-text);
+}
+
+#themeMenu .menu-divider {
+    border-color: var(--border-color);
+}
+
+/* 确保深色主题下主题菜单文字为白色 */
+.dark #themeMenu .text-gray-800 {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 主题选项未选中时文字样式 */
+.dark [data-theme] span {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 当前选中的主题选项 */
+.dark [data-theme].active {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 主题选项悬停状态 */
+.dark [data-theme]:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 菜单标题样式修复 */
+.dark #themeMenu h3 {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 工具详情界面样式 */
+.tool-detail {
+    color: var(--primary-text) !important;
+}
+
+.tool-detail h1,
+.tool-detail h2,
+.tool-detail h3,
+.tool-detail h4,
+.tool-detail h5,
+.tool-detail h6 {
+    color: var(--primary-text) !important;
+}
+
+.tool-detail p,
+.tool-detail li {
+    color: var(--secondary-text) !important;
+}
+
+.tool-detail code,
+.tool-detail pre {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.tool-detail a {
+    color: var(--accent-color) !important;
+}
+
+.tool-detail a:hover {
+    color: var(--accent-secondary) !important;
+}
+
+.tool-detail blockquote {
+    border-color: var(--accent-color);
+    background-color: var(--card-bg);
+}
+
+.tool-detail table {
+    border-color: var(--border-color);
+}
+
+.tool-detail th,
+.tool-detail td {
+    border-color: var(--border-color);
+}
+
+.tool-detail th {
+    background-color: var(--card-bg);
+    color: var(--primary-text) !important;
+}
+
+.tool-detail td {
+    color: var(--secondary-text) !important;
+}
+
+.tool-detail hr {
+    border-color: var(--border-color);
+}
+
+/* 确保工具卡片文字在所有主题下都清晰可见 */
+.tool-card {
+    color: var(--primary-text) !important;
+}
+
+.tool-card-title {
+    color: var(--primary-text) !important;
+    font-weight: 600;
+}
+
+.tool-card-description {
+    color: var(--secondary-text) !important;
+}
+
+.tool-card-category {
+    color: var(--accent-color) !important;
+}
+
+.tool-card-meta {
+    color: var(--muted-text) !important;
+}
+
+/* 深色模式通用优化 */
+.dark {
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.85);
+    --muted-text: rgba(255, 255, 255, 0.7);
+    --border-color: rgba(255, 255, 255, 0.15);
+    --border-hover: rgba(255, 255, 255, 0.25);
+    --card-bg: rgba(31, 41, 55, 0.7);
+}
+
+/* 应用详情页特定优化 */
+.dark .app-header h1,
+.dark .app-header p {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .feature-card {
+    background-color: rgba(31, 41, 55, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .feature-card h3 {
+    color: white !important;
+}
+
+.dark .feature-card p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dark .testimonial-card {
+    background-color: rgba(31, 41, 55, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .download-section {
+    position: relative;
+}
+
+.dark .download-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 0;
+}
+
+.dark .download-section > * {
+    position: relative;
+    z-index: 1;
+} 
