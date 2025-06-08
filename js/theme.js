@@ -165,7 +165,7 @@
         // 主题菜单标题
         const menuTitle = document.createElement('div');
         menuTitle.className = 'py-3 px-4 border-b border-gray-200 dark:border-gray-800';
-        menuTitle.innerHTML = '<h3 class="text-gray-800 dark:text-gray-200 font-medium text-center">选择主题</h3>';
+        menuTitle.innerHTML = '<h3 class="text-gray-900 dark:text-white font-semibold text-center">选择主题</h3>';
         themeMenu.appendChild(menuTitle);
         
         // 深色主题选项
