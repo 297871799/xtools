@@ -199,12 +199,31 @@
                 
                 <!-- 更多应用提示 -->
                 <div class="mt-16 text-center">
-                    <div class="inline-block px-8 py-4 bg-gray-100 dark:bg-gray-800 rounded-full mb-6">
-                        <span class="text-gray-600 dark:text-gray-400">
-                            <i class="fas fa-code-branch mr-2"></i>
-                            更多精彩应用正在开发中
-                        </span>
+                    <div class="relative group">
+                        <!-- 主按钮区域 -->
+                        <div class="inline-flex flex-col items-center mb-8">
+                            <!-- 装饰性光晕效果 -->
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-xl opacity-70 dark:opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+                            
+                            <!-- 主按钮容器 -->
+                            <div class="relative px-8 py-6 rounded-2xl backdrop-blur-md bg-white/80 dark:bg-gray-800/90 border border-white/20 dark:border-gray-700/50 shadow-lg overflow-hidden group-hover:scale-[1.03] transition-all duration-500">
+                                <!-- 悬浮时的动态背景 -->
+                                <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 dark:from-blue-600/20 dark:via-purple-600/20 dark:to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                
+                                <!-- 内容 -->
+                                <div class="relative flex items-center justify-center">
+                                    <div class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700 rounded-full mr-4 shadow-md shadow-blue-500/20 dark:shadow-blue-700/30">
+                                        <i class="fas fa-rocket text-white text-xl animate-pulse"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-1">更多精彩应用正在开发中</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">敬请期待我们的新作品</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                     <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                         我们团队正在努力开发更多高品质iOS应用，敬请期待。
                         如果您有任何建议或需求，欢迎随时与我们联系。
