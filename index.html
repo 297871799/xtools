@@ -134,20 +134,20 @@
             <!-- 应用展示 - 卡片式布局 -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mt-12">
                 <!-- 我物应用 -->
-                <div class="app-card group bg-gradient-to-br from-blue-500/5 via-indigo-500/10 to-blue-500/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden p-8 transform transition-all hover:scale-105 hover:shadow-xl hover:border-white/20 cursor-pointer" onclick="window.location.href='tools/wowu.html'">
+                <div class="app-card group bg-gradient-to-br from-blue-500/5 via-indigo-500/10 to-blue-500/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden p-8 transform transition-all hover:scale-105 hover:shadow-xl hover:border-white/20 cursor-pointer" onclick="if(!event.target.closest('a')) window.location.href='tools/wowu.html'">
                     <div class="flex flex-col items-center md:items-start gap-8">
                         <div class="app-icon w-28 h-28 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-blue-500/20 transition-all">
-                            <img src="img/app-icon-wowu.png" alt="我物应用图标" class="w-full h-full object-cover">
+                            <img src="img/wowu/logo.png" alt="我物应用图标" class="w-full h-full object-cover">
                         </div>
                         <div class="text-center md:text-left">
                             <h3 class="text-3xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">我物</h3>
                             <p class="text-white/60 mb-6 text-lg">专业的资产管理工具，帮助您轻松跟踪和管理您的各类资产</p>
                             <div class="flex flex-col sm:flex-row items-center gap-4">
-                                <a href="https://apps.apple.com/app/id12345678" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full hover:from-blue-600 hover:to-indigo-700 transition-all">
+                                <a href="https://apps.apple.com/app/id12345678" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white px-6 py-3 rounded-full hover:from-blue-600 hover:to-indigo-700 transition-all" onclick="event.stopPropagation()">
                                     <i class="fab fa-apple"></i>
                                     <span>下载应用</span>
                                 </a>
-                                <a href="tools/wowu.html" class="text-blue-400 hover:text-blue-300 transition-colors">
+                                <a href="tools/wowu.html" class="text-blue-400 hover:text-blue-300 transition-colors" onclick="event.stopPropagation()">
                                     了解详情 <i class="fas fa-arrow-right ml-1"></i>
                                 </a>
                             </div>
@@ -156,20 +156,20 @@
                 </div>
                 
                 <!-- SuperFilm应用 -->
-                <div class="app-card group bg-gradient-to-br from-purple-500/5 via-pink-500/10 to-purple-500/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden p-8 transform transition-all hover:scale-105 hover:shadow-xl hover:border-white/20 cursor-pointer" onclick="window.location.href='tools/superfilm.html'">
+                <div class="app-card group bg-gradient-to-br from-purple-500/5 via-pink-500/10 to-purple-500/5 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden p-8 transform transition-all hover:scale-105 hover:shadow-xl hover:border-white/20 cursor-pointer" onclick="if(!event.target.closest('a')) window.location.href='tools/superfilm.html'">
                     <div class="flex flex-col items-center md:items-start gap-8">
                         <div class="app-icon w-28 h-28 rounded-2xl overflow-hidden shadow-lg group-hover:shadow-purple-500/20 transition-all">
-                            <img src="img/app-icon-superfilm.png" alt="SuperFilm应用图标" class="w-full h-full object-cover">
+                            <img src="img/superfilm/logo.png" alt="SuperFilm应用图标" class="w-full h-full object-cover">
                         </div>
                         <div class="text-center md:text-left">
                             <h3 class="text-3xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">SuperFilm</h3>
                             <p class="text-white/60 mb-6 text-lg">专业级照片滤镜工具，让您的照片焕发艺术光彩</p>
                             <div class="flex flex-col sm:flex-row items-center gap-4">
-                                <a href="https://apps.apple.com/app/id87654321" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-700 transition-all">
+                                <a href="https://apps.apple.com/app/id87654321" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-600 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-pink-700 transition-all" onclick="event.stopPropagation()">
                                     <i class="fab fa-apple"></i>
                                     <span>下载应用</span>
                                 </a>
-                                <a href="tools/superfilm.html" class="text-purple-400 hover:text-purple-300 transition-colors">
+                                <a href="tools/superfilm.html" class="text-purple-400 hover:text-purple-300 transition-colors" onclick="event.stopPropagation()">
                                     了解详情 <i class="fas fa-arrow-right ml-1"></i>
                                 </a>
                             </div>

@@ -497,4 +497,15 @@ footer .btn-primary:hover {
 .dark .download-section > * {
     position: relative;
     z-index: 1;
+}
+
+[data-theme="light"] #themeMenu [data-theme] span {
+    color: #1e293b !important;
+}
+[data-theme="light"] #themeMenu .menu-title,
+[data-theme="light"] #themeMenu button {
+    color: #1e293b !important;
+}
+[data-theme="light"] #themeMenu .active {
+    background-color: #f3f4f6 !important;
 } 

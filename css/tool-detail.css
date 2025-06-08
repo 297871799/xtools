@@ -171,9 +171,38 @@
 
 /* 应用详情页专用样式 */
 
-/* 应用头部样式 */
+/* 应用头部样式优化，确保文字清晰 */
 .app-header {
-    background-image: var(--gradient-overlay);
+    position: relative;
+    background: linear-gradient(120deg, #4f46e5 0%, #8b5cf6 100%);
+    color: #fff;
+    padding: 3rem 2rem 2rem 2rem;
+    text-align: left;
+    overflow: hidden;
+}
+.app-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.32);
+    z-index: 0;
+    pointer-events: none;
+}
+.app-header * {
+    position: relative;
+    z-index: 1;
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+[data-theme='light'] .app-header {
+    background: linear-gradient(120deg, #e0e7ff 0%, #f3e8ff 100%);
+}
+[data-theme='light'] .app-header::before {
+    background: rgba(255,255,255,0.45);
+}
+[data-theme='light'] .app-header * {
+    color: #1e293b !important;
+    text-shadow: 0 2px 8px rgba(255,255,255,0.18);
 }
 
 /* 确保深色模式下文字可见性 */
@@ -263,16 +292,61 @@
 
 /* 下载区域 */
 .download-section {
-    background-image: var(--gradient-overlay);
+    position: relative;
+    background: linear-gradient(120deg, #f3e8ff 0%, #e0e7ff 100%);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-radius: 1.5rem;
+    overflow: hidden;
 }
-
-.download-btn {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.download-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.55);
+    z-index: 0;
+    pointer-events: none;
 }
-
-.download-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+.download-section * {
+    position: relative;
+    z-index: 1;
+    color: #1e293b !important;
+    text-shadow: 0 2px 8px rgba(255,255,255,0.18);
+}
+[data-theme='dark'] .download-section {
+    background: linear-gradient(120deg, #3730a3 0%, #6d28d9 100%);
+}
+[data-theme='dark'] .download-section::before {
+    background: rgba(0,0,0,0.32);
+}
+[data-theme='dark'] .download-section * {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+.download-section .download-btn,
+.download-section .btn,
+.download-section a.download-btn {
+    background: #fff;
+    color: #7c3aed !important;
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 0 4px 24px 0 rgba(124,58,237,0.08);
+    transition: background 0.2s, color 0.2s;
+    text-shadow: none !important;
+}
+[data-theme='dark'] .download-section .download-btn,
+[data-theme='dark'] .download-section .btn,
+[data-theme='dark'] .download-section a.download-btn {
+    background: #7c3aed !important;
+    color: #fff !important;
+    text-shadow: none !important;
+}
+[data-theme='light'] .download-section .download-btn,
+[data-theme='light'] .download-section .btn,
+[data-theme='light'] .download-section a.download-btn {
+    background: #fff !important;
+    color: #7c3aed !important;
+    text-shadow: none !important;
 }
 
 /* 深色模式下的特殊高亮文字 */
