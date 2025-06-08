@@ -136,21 +136,21 @@
         <section class="py-16 bg-gray-50 dark:bg-gray-900">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-8">关于我物</h2>
+                    <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white">关于我物</h2>
                     <div class="prose prose-lg dark:prose-invert max-w-none card-content">
-                        <p>「我物」是一款专业的资产管理工具，帮助您轻松跟踪和管理各类资产。无论是现金、股票、基金、房产还是贵金属，「我物」都能为您提供全面的资产视图，让您对自己的财务状况一目了然。</p>
+                        <p class="text-gray-800 dark:text-gray-200">「我物」是一款专业的资产管理工具，帮助您轻松跟踪和管理各类资产。无论是现金、股票、基金、房产还是贵金属，「我物」都能为您提供全面的资产视图，让您对自己的财务状况一目了然。</p>
                         
-                        <p>通过直观的图表和详细的分析，您可以清晰地了解资产的分布和变化趋势，做出更明智的财务决策。「我物」还支持多设备同步，让您随时随地管理您的资产。</p>
+                        <p class="text-gray-800 dark:text-gray-200">通过直观的图表和详细的分析，您可以清晰地了解资产的分布和变化趋势，做出更明智的财务决策。「我物」还支持多设备同步，让您随时随地管理您的资产。</p>
                         
-                        <h3 class="text-2xl font-bold mt-8 mb-4">核心功能</h3>
-                        <ul>
-                            <li><strong>多类型资产管理</strong> - 支持现金、股票、基金、债券、房产、贵金属等多种资产类型</li>
-                            <li><strong>资产价值变化追踪</strong> - 实时更新资产价值，记录历史变化</li>
-                            <li><strong>自定义分类标签</strong> - 根据您的需求创建自定义标签，灵活组织资产</li>
-                            <li><strong>直观图表分析</strong> - 通过饼图、折线图等多种图表直观展示资产分布和变化</li>
-                            <li><strong>云端数据同步</strong> - 数据安全存储在云端，多设备无缝同步</li>
-                            <li><strong>定期资产报告</strong> - 自动生成资产报告，全面了解财务状况</li>
-                            <li><strong>隐私保护</strong> - 高强度加密，确保您的财务数据安全</li>
+                        <h3 class="text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white">核心功能</h3>
+                        <ul class="text-gray-800 dark:text-gray-200">
+                            <li><strong class="text-gray-900 dark:text-white">多类型资产管理</strong> - 支持现金、股票、基金、债券、房产、贵金属等多种资产类型</li>
+                            <li><strong class="text-gray-900 dark:text-white">资产价值变化追踪</strong> - 实时更新资产价值，记录历史变化</li>
+                            <li><strong class="text-gray-900 dark:text-white">自定义分类标签</strong> - 根据您的需求创建自定义标签，灵活组织资产</li>
+                            <li><strong class="text-gray-900 dark:text-white">直观图表分析</strong> - 通过饼图、折线图等多种图表直观展示资产分布和变化</li>
+                            <li><strong class="text-gray-900 dark:text-white">云端数据同步</strong> - 数据安全存储在云端，多设备无缝同步</li>
+                            <li><strong class="text-gray-900 dark:text-white">定期资产报告</strong> - 自动生成资产报告，全面了解财务状况</li>
+                            <li><strong class="text-gray-900 dark:text-white">隐私保护</strong> - 高强度加密，确保您的财务数据安全</li>
                         </ul>
                     </div>
                 </div>
@@ -158,51 +158,64 @@
         </section>
 
         <!-- 功能特点 -->
-        <section class="py-16 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-12 text-center">功能特点</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
-                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-6">
-                            <i class="fas fa-chart-pie text-2xl text-blue-600 dark:text-blue-400"></i>
+        <section class="py-20 bg-gradient-to-b from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 transition-colors">
+            <div class="container mx-auto px-4 relative">
+                <!-- 装饰元素 -->
+                <div class="absolute -top-10 right-10 w-32 h-32 bg-blue-300/20 dark:bg-blue-500/10 rounded-full filter blur-3xl"></div>
+                <div class="absolute -bottom-10 left-10 w-40 h-40 bg-indigo-300/20 dark:bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+                
+                <div class="relative">
+                    <h2 class="text-4xl font-bold mb-3 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400">功能特点</h2>
+                    <p class="text-center text-gray-700 dark:text-gray-300 mb-16 max-w-xl mx-auto">专业级资产管理工具，为您的财富保驾护航</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                        <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-gray-800/30 hover:shadow-2xl dark:hover:shadow-gray-700/30 transition-all duration-300 transform hover:-translate-y-1 feature-card backdrop-blur-sm backdrop-filter">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500 rounded-2xl mb-6 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 group-hover:shadow-xl group-hover:shadow-blue-300/30 dark:group-hover:shadow-blue-800/40 transition-all">
+                                <i class="fas fa-chart-pie text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">可视化分析</h3>
+                            <p class="text-gray-800 dark:text-gray-300 leading-relaxed">多种专业图表直观展示资产分布和变化趋势，让您的财务状况一目了然，做出更明智的投资决策</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">可视化分析</h3>
-                        <p class="text-gray-600 dark:text-gray-300">多种图表直观展示资产分布和变化趋势，让您的财务状况一目了然</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
-                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-6">
-                            <i class="fas fa-cloud text-2xl text-blue-600 dark:text-blue-400"></i>
+                        
+                        <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-gray-800/30 hover:shadow-2xl dark:hover:shadow-gray-700/30 transition-all duration-300 transform hover:-translate-y-1 feature-card backdrop-blur-sm backdrop-filter">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-400 dark:to-indigo-500 rounded-2xl mb-6 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 group-hover:shadow-xl group-hover:shadow-indigo-300/30 dark:group-hover:shadow-indigo-800/40 transition-all">
+                                <i class="fas fa-cloud text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">云端同步</h3>
+                            <p class="text-gray-800 dark:text-gray-300 leading-relaxed">数据安全存储在云端，采用端到端加密技术，实现多设备无缝同步，随时随地管理您的资产</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">云端同步</h3>
-                        <p class="text-gray-600 dark:text-gray-300">数据安全存储在云端，实现多设备无缝同步，随时随地管理您的资产</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
-                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-6">
-                            <i class="fas fa-lock text-2xl text-blue-600 dark:text-blue-400"></i>
+                        
+                        <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-gray-800/30 hover:shadow-2xl dark:hover:shadow-gray-700/30 transition-all duration-300 transform hover:-translate-y-1 feature-card backdrop-blur-sm backdrop-filter">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-indigo-600 dark:from-indigo-400 dark:to-indigo-500 rounded-2xl mb-6 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30 group-hover:shadow-xl group-hover:shadow-indigo-300/30 dark:group-hover:shadow-indigo-800/40 transition-all">
+                                <i class="fas fa-lock text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">安全保障</h3>
+                            <p class="text-gray-800 dark:text-gray-300 leading-relaxed">采用银行级加密技术，确保您的财务数据安全，支持Face ID/Touch ID快速解锁，双重验证保护</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">安全保障</h3>
-                        <p class="text-gray-600 dark:text-gray-300">采用高强度加密技术，确保您的财务数据安全，支持Face ID/Touch ID快速解锁</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
-                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-6">
-                            <i class="fas fa-tags text-2xl text-blue-600 dark:text-blue-400"></i>
+                        
+                        <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-gray-800/30 hover:shadow-2xl dark:hover:shadow-gray-700/30 transition-all duration-300 transform hover:-translate-y-1 feature-card backdrop-blur-sm backdrop-filter">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-blue-600 dark:from-indigo-400 dark:to-blue-500 rounded-2xl mb-6 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30 group-hover:shadow-xl group-hover:shadow-blue-300/30 dark:group-hover:shadow-blue-800/40 transition-all">
+                                <i class="fas fa-tags text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">自定义标签</h3>
+                            <p class="text-gray-800 dark:text-gray-300 leading-relaxed">创建个性化分类标签，灵活组织资产，提供智能标签推荐，适应不同类型的财务管理需求</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">自定义标签</h3>
-                        <p class="text-gray-600 dark:text-gray-300">创建自定义分类标签，灵活组织资产，适应不同的财务管理需求</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
-                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-6">
-                            <i class="fas fa-bell text-2xl text-blue-600 dark:text-blue-400"></i>
+                        
+                        <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-gray-800/30 hover:shadow-2xl dark:hover:shadow-gray-700/30 transition-all duration-300 transform hover:-translate-y-1 feature-card backdrop-blur-sm backdrop-filter">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 rounded-2xl mb-6 shadow-lg shadow-blue-200 dark:shadow-blue-900/30 group-hover:shadow-xl group-hover:shadow-indigo-300/30 dark:group-hover:shadow-indigo-800/40 transition-all">
+                                <i class="fas fa-bell text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">智能提醒</h3>
+                            <p class="text-gray-800 dark:text-gray-300 leading-relaxed">设置资产价值变化提醒，AI智能分析市场波动，及时提供投资建议，把握理财良机</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">提醒功能</h3>
-                        <p class="text-gray-600 dark:text-gray-300">设置资产价值变化提醒，及时获取重要财务信息，把握投资机会</p>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl feature-card">
-                        <div class="w-16 h-16 flex items-center justify-center bg-blue-100 dark:bg-blue-900 rounded-full mb-6">
-                            <i class="fas fa-file-alt text-2xl text-blue-600 dark:text-blue-400"></i>
+                        
+                        <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl dark:shadow-gray-800/30 hover:shadow-2xl dark:hover:shadow-gray-700/30 transition-all duration-300 transform hover:-translate-y-1 feature-card backdrop-blur-sm backdrop-filter">
+                            <div class="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-indigo-400 to-blue-500 dark:from-indigo-300 dark:to-blue-400 rounded-2xl mb-6 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30 group-hover:shadow-xl group-hover:shadow-blue-300/30 dark:group-hover:shadow-blue-800/40 transition-all">
+                                <i class="fas fa-file-alt text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">财务报告</h3>
+                            <p class="text-gray-800 dark:text-gray-300 leading-relaxed">自动生成专业财务报告，提供全面资产分析，支持PDF导出和打印，便于财务规划</p>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">资产报告</h3>
-                        <p class="text-gray-600 dark:text-gray-300">自动生成每周/每月资产报告，帮助您全面了解财务状况变化</p>
                     </div>
                 </div>
             </div>
@@ -211,9 +224,9 @@
         <!-- 用户评价 -->
         <section class="py-16 bg-gray-50 dark:bg-gray-900">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold mb-12 text-center">用户评价</h2>
+                <h2 class="text-3xl font-bold mb-12 text-center text-gray-900 dark:text-white">用户评价</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg dark:shadow-gray-700/30 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-700/40 testimonial-card">
                         <div class="flex items-center mb-4">
                             <div class="flex mr-2">
                                 <i class="fas fa-star text-yellow-400"></i>
@@ -222,20 +235,20 @@
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
                             </div>
-                            <span class="text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">5.0</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">"我物是我用过的最好的资产管理工具，界面简洁，功能齐全，数据同步也很方便。强烈推荐！"</p>
+                        <p class="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">"我物是我用过的最好的资产管理工具，界面简洁，功能齐全，数据同步也很方便。强烈推荐！"</p>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3 shadow">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3 shadow-md">
                                 <img src="../img/avatars/avatar-male-1.jpg" alt="张先生头像" class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <h4 class="font-medium text-gray-900 dark:text-white">张先生</h4>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">资深用户</p>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">资深用户</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg dark:shadow-gray-700/30 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-700/40 testimonial-card">
                         <div class="flex items-center mb-4">
                             <div class="flex mr-2">
                                 <i class="fas fa-star text-yellow-400"></i>
@@ -244,20 +257,20 @@
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star text-yellow-400"></i>
                             </div>
-                            <span class="text-sm text-gray-600 dark:text-gray-400">5.0</span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">5.0</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">"图表分析功能非常直观，让我对自己的资产分布有了清晰的认识。安全性也很好，非常放心使用。"</p>
+                        <p class="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">"图表分析功能非常直观，让我对自己的资产分布有了清晰的认识。安全性也很好，非常放心使用。"</p>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3 shadow">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3 shadow-md">
                                 <img src="../img/avatars/avatar-female-2.jpg" alt="王女士头像" class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <h4 class="font-medium text-gray-900 dark:text-white">王女士</h4>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">投资顾问</p>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">投资顾问</p>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow testimonial-card">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg dark:shadow-gray-700/30 transition-all duration-300 hover:shadow-xl dark:hover:shadow-gray-700/40 testimonial-card">
                         <div class="flex items-center mb-4">
                             <div class="flex mr-2">
                                 <i class="fas fa-star text-yellow-400"></i>
@@ -266,16 +279,16 @@
                                 <i class="fas fa-star text-yellow-400"></i>
                                 <i class="fas fa-star-half-alt text-yellow-400"></i>
                             </div>
-                            <span class="text-sm text-gray-600 dark:text-gray-400">4.5</span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">4.5</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">"云端同步功能很实用，在手机和iPad上都能管理资产。界面设计也很美观，使用体验很好。"</p>
+                        <p class="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed">"云端同步功能很实用，在手机和iPad上都能管理资产。界面设计也很美观，使用体验很好。"</p>
                         <div class="flex items-center">
-                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3 shadow">
+                            <div class="w-10 h-10 rounded-full overflow-hidden mr-3 shadow-md">
                                 <img src="../img/avatars/avatar-male-3.jpg" alt="李先生头像" class="w-full h-full object-cover">
                             </div>
                             <div>
                                 <h4 class="font-medium text-gray-900 dark:text-white">李先生</h4>
-                                <p class="text-sm text-gray-500 dark:text-gray-400">新用户</p>
+                                <p class="text-sm text-gray-700 dark:text-gray-300">新用户</p>
                             </div>
                         </div>
                     </div>
@@ -284,11 +297,14 @@
         </section>
 
         <!-- 下载区域 -->
-        <section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white download-section">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl font-bold mb-6">立即开始管理您的资产</h2>
-                <p class="text-xl opacity-90 max-w-2xl mx-auto mb-8">下载「我物」，开启智能资产管理之旅</p>
-                <a href="https://apps.apple.com/app/id12345678" target="_blank" class="inline-flex items-center gap-3 bg-white text-blue-600 px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors text-lg font-medium download-btn">
+        <section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white download-section relative">
+            <!-- 添加背景处理以确保文字清晰度 -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/95 to-indigo-700/95"></div>
+            
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-3xl font-bold mb-6 text-white drop-shadow-sm">立即开始管理您的资产</h2>
+                <p class="text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow-sm">下载「我物」，开启智能资产管理之旅</p>
+                <a href="https://apps.apple.com/app/id12345678" target="_blank" class="inline-flex items-center gap-3 bg-white text-blue-700 font-medium px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors text-lg shadow-lg hover:shadow-xl download-btn">
                     <i class="fab fa-apple text-2xl"></i>
                     <span>App Store 下载</span>
                 </a>
@@ -301,49 +317,49 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
                         <h3 class="text-xl font-bold mb-4">X<span class="text-indigo-400">Tools</span></h3>
-                        <p class="text-gray-300 mb-4">专业iOS应用开发，提升您的生活品质</p>
+                        <p class="text-gray-200 mb-4">专业iOS应用开发，提升您的生活品质</p>
                         <div class="flex space-x-4">
-                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors">
                                 <i class="fab fa-github"></i>
                             </a>
-                            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <a href="#" class="text-gray-200 hover:text-white transition-colors">
                                 <i class="fab fa-linkedin"></i>
                             </a>
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-lg font-semibold mb-4">应用</h4>
+                        <h4 class="text-lg font-semibold mb-4 text-white">应用</h4>
                         <ul class="space-y-2">
-                            <li><a href="wowu.html" class="text-gray-300 hover:text-white transition-colors">我物</a></li>
-                            <li><a href="superfilm.html" class="text-gray-300 hover:text-white transition-colors">SuperFilm</a></li>
-                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">即将推出</a></li>
+                            <li><a href="wowu.html" class="text-gray-200 hover:text-white transition-colors">我物</a></li>
+                            <li><a href="superfilm.html" class="text-gray-200 hover:text-white transition-colors">SuperFilm</a></li>
+                            <li><a href="#" class="text-gray-200 hover:text-white transition-colors">即将推出</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-lg font-semibold mb-4">公司</h4>
+                        <h4 class="text-lg font-semibold mb-4 text-white">公司</h4>
                         <ul class="space-y-2">
-                            <li><a href="../about.html" class="text-gray-300 hover:text-white transition-colors">关于我们</a></li>
-                            <li><a href="../contact.html" class="text-gray-300 hover:text-white transition-colors">联系我们</a></li>
-                            <li><a href="../privacy.html" class="text-gray-300 hover:text-white transition-colors">隐私政策</a></li>
-                            <li><a href="../terms.html" class="text-gray-300 hover:text-white transition-colors">使用条款</a></li>
+                            <li><a href="../about.html" class="text-gray-200 hover:text-white transition-colors">关于我们</a></li>
+                            <li><a href="../contact.html" class="text-gray-200 hover:text-white transition-colors">联系我们</a></li>
+                            <li><a href="../privacy.html" class="text-gray-200 hover:text-white transition-colors">隐私政策</a></li>
+                            <li><a href="../terms.html" class="text-gray-200 hover:text-white transition-colors">使用条款</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h4 class="text-lg font-semibold mb-4">订阅更新</h4>
-                        <p class="text-gray-300 mb-4">及时获取最新应用和更新</p>
+                        <h4 class="text-lg font-semibold mb-4 text-white">订阅更新</h4>
+                        <p class="text-gray-200 mb-4">及时获取最新应用和更新</p>
                         <form class="flex">
-                            <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full">
-                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors">
+                            <input type="email" placeholder="您的邮箱" class="px-4 py-2 rounded-l-md focus:outline-none text-gray-800 w-full" aria-label="电子邮箱地址">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-r-md transition-colors" aria-label="提交订阅">
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </form>
                     </div>
                 </div>
-                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                    <p>&copy; 2023 XTools. 保留所有权利.</p>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                    <p class="text-gray-300">&copy; 2023 XTools. 保留所有权利.</p>
                 </div>
             </div>
         </footer>
