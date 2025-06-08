@@ -23,7 +23,7 @@
                 </a>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="home" data-i18n="nav.home">首页</a>
-                    <a href="tools.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="tools" data-i18n="nav.tools">工具库</a>
+                    <a href="tools.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="tools" data-i18n="nav.tools">应用</a>
                     <a href="about.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="about" data-i18n="nav.about">关于我们</a>
                     <a href="contact.html" class="nav-link hover:text-blue-400 transition-colors" data-nav-link="contact" data-i18n="nav.contact">联系我们</a>
                     <div class="flex items-center space-x-4">
@@ -55,7 +55,7 @@
         <div class="container mx-auto px-6 py-20">
             <div class="flex flex-col space-y-8 text-center text-2xl">
                 <a href="index.html" class="hover:text-blue-400 transition-colors" data-mobile-link="home" data-i18n="nav.home">首页</a>
-                <a href="tools.html" class="hover:text-blue-400 transition-colors" data-mobile-link="tools" data-i18n="nav.tools">工具库</a>
+                <a href="tools.html" class="hover:text-blue-400 transition-colors" data-mobile-link="tools" data-i18n="nav.tools">应用</a>
                 <a href="about.html" class="hover:text-blue-400 transition-colors" data-mobile-link="about" data-i18n="nav.about">关于我们</a>
                 <a href="contact.html" class="hover:text-blue-400 transition-colors" data-mobile-link="contact" data-i18n="nav.contact">联系我们</a>
             </div>
@@ -63,107 +63,126 @@
     </div>
 
     <!-- 页面标题 -->
-    <section class="bg-indigo-600 text-white py-12 mt-24">
-        <div class="container mx-auto px-4">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="contactPage.title">联系我们</h1>
-            <p class="text-lg opacity-90 max-w-3xl" data-i18n="contactPage.subtitle">有任何问题或建议？请随时与我们联系</p>
+    <section class="relative bg-gradient-to-r from-indigo-600 to-blue-700 dark:from-indigo-700 dark:to-blue-800 text-white py-20 mt-24 overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-white rounded-full filter blur-3xl"></div>
+            <div class="absolute top-1/2 -left-20 w-60 h-60 bg-white rounded-full filter blur-3xl"></div>
+            <div class="absolute -bottom-10 right-1/4 w-40 h-40 bg-white rounded-full filter blur-3xl"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block px-4 py-1 rounded-full bg-white/20 text-white font-medium text-sm mb-6">联系我们</span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight" data-i18n="contactPage.title">与XTools团队建立联系</h1>
+                <p class="text-xl opacity-90 leading-relaxed" data-i18n="contactPage.subtitle">无论您有问题、建议或合作意向，我们都期待听到您的声音。我们的团队随时准备为您提供支持。</p>
+            </div>
         </div>
     </section>
 
     <!-- 联系方式 -->
-    <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div class="container mx-auto px-4">
-            <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section class="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
                     <!-- 联系表单 -->
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-lg shadow-md">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="contactPage.sendMessage">发送消息</h2>
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.name">姓名</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors" data-i18n-placeholder="contactPage.namePlaceholder" placeholder="您的姓名">
+                    <div class="lg:col-span-3">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                            <div class="p-8 md:p-10">
+                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8" data-i18n="contactPage.sendMessage">发送消息</h2>
+                                <form>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                        <div>
+                                            <label for="name" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.name">姓名</label>
+                                            <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors" data-i18n-placeholder="contactPage.namePlaceholder" placeholder="您的姓名">
+                                        </div>
+                                        <div>
+                                            <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.email">电子邮箱</label>
+                                            <input type="email" id="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors" data-i18n-placeholder="contactPage.emailPlaceholder" placeholder="您的电子邮箱">
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <label for="subject" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.subject">主题</label>
+                                        <input type="text" id="subject" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors" data-i18n-placeholder="contactPage.subjectPlaceholder" placeholder="消息主题">
+                                    </div>
+                                    <div class="mb-8">
+                                        <label for="message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.message">消息内容</label>
+                                        <textarea id="message" rows="6" class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-colors" data-i18n-placeholder="contactPage.messagePlaceholder" placeholder="请详细描述您的问题或建议..."></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full py-3 px-6 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                                        <i class="fas fa-paper-plane mr-2"></i> <span data-i18n="contactPage.send">发送消息</span>
+                                    </button>
+                                </form>
                             </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.email">电子邮箱</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors" data-i18n-placeholder="contactPage.emailPlaceholder" placeholder="您的电子邮箱">
-                            </div>
-                            <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.subject">主题</label>
-                                <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors" data-i18n-placeholder="contactPage.subjectPlaceholder" placeholder="消息主题">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 dark:text-gray-300 font-medium mb-2" data-i18n="contactPage.message">消息内容</label>
-                                <textarea id="message" rows="6" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-600 text-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-colors" data-i18n-placeholder="contactPage.messagePlaceholder" placeholder="请详细描述您的问题或建议..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors">
-                                <i class="fas fa-paper-plane mr-2"></i> <span data-i18n="contactPage.send">发送消息</span>
-                            </button>
-                        </form>
+                        </div>
                     </div>
                     
                     <!-- 联系信息 -->
-                    <div>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="contactPage.contactInfo">联系信息</h2>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-indigo-600 dark:text-indigo-400"></i>
+                    <div class="lg:col-span-2">
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl shadow-xl overflow-hidden border border-blue-100 dark:border-gray-700 h-full">
+                            <div class="p-8 md:p-10">
+                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8" data-i18n="contactPage.contactInfo">联系信息</h2>
+                                
+                                <div class="space-y-8">
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-5">
+                                            <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-i18n="contactPage.address">地址</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">北京市海淀区科技园区88号</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-5">
+                                            <i class="fas fa-phone-alt text-blue-600 dark:text-blue-400 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-i18n="contactPage.phone">电话</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">+86 123 4567 8910</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-5">
+                                            <i class="fas fa-envelope text-blue-600 dark:text-blue-400 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-i18n="contactPage.email">电子邮箱</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">contact@xtools.com</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <div class="flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 dark:bg-blue-900/50 flex items-center justify-center mr-5">
+                                            <i class="fas fa-clock text-blue-600 dark:text-blue-400 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2" data-i18n="contactPage.workingHours">工作时间</h3>
+                                            <p class="text-gray-700 dark:text-gray-300">周一至周五: 9:00 - 18:00</p>
+                                            <p class="text-gray-700 dark:text-gray-300">周六至周日: 休息</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1" data-i18n="contactPage.address">地址</h3>
-                                    <p class="text-gray-600 dark:text-gray-300">北京市海淀区科技园区88号</p>
+                                
+                                <!-- 社交媒体链接 -->
+                                <div class="mt-10">
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4" data-i18n="contactPage.followUs">关注我们</h3>
+                                    <div class="flex space-x-3">
+                                        <a href="#" class="h-12 w-12 rounded-full bg-white dark:bg-gray-700 shadow-md flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-600 transition-colors duration-300">
+                                            <i class="fab fa-twitter text-lg"></i>
+                                        </a>
+                                        <a href="#" class="h-12 w-12 rounded-full bg-white dark:bg-gray-700 shadow-md flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-600 transition-colors duration-300">
+                                            <i class="fab fa-facebook-f text-lg"></i>
+                                        </a>
+                                        <a href="#" class="h-12 w-12 rounded-full bg-white dark:bg-gray-700 shadow-md flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-600 transition-colors duration-300">
+                                            <i class="fab fa-instagram text-lg"></i>
+                                        </a>
+                                        <a href="#" class="h-12 w-12 rounded-full bg-white dark:bg-gray-700 shadow-md flex items-center justify-center text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-600 transition-colors duration-300">
+                                            <i class="fab fa-linkedin-in text-lg"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mr-4">
-                                    <i class="fas fa-phone-alt text-indigo-600 dark:text-indigo-400"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1" data-i18n="contactPage.phone">电话</h3>
-                                    <p class="text-gray-600 dark:text-gray-300">+86 123 4567 8910</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-indigo-600 dark:text-indigo-400"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1" data-i18n="contactPage.email">电子邮箱</h3>
-                                    <p class="text-gray-600 dark:text-gray-300">contact@xtools.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mr-4">
-                                    <i class="fas fa-clock text-indigo-600 dark:text-indigo-400"></i>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1" data-i18n="contactPage.workingHours">工作时间</h3>
-                                    <p class="text-gray-600 dark:text-gray-300">周一至周五: 9:00 - 18:00</p>
-                                    <p class="text-gray-600 dark:text-gray-300">周六至周日: 休息</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- 社交媒体链接 -->
-                        <div class="mt-8">
-                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4" data-i18n="contactPage.followUs">关注我们</h3>
-                            <div class="flex space-x-4">
-                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="h-10 w-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -172,14 +191,106 @@
         </div>
     </section>
 
-    <!-- 地图 -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="container mx-auto px-4">
+    <!-- 全球业务 -->
+    <section class="py-20 relative overflow-hidden">
+        <!-- 背景效果 -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-gray-800 dark:to-indigo-900 transition-colors duration-300"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-400/10 dark:bg-blue-500/10 rounded-full filter blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-400/10 dark:bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="contactPage.findUs">查找我们</h2>
-                <div class="rounded-lg overflow-hidden shadow-lg">
-                    <div class="aspect-w-16 aspect-h-9 h-96 bg-gray-300 dark:bg-gray-700">
-                        <iframe src="https://maps.google.com/maps?q=北京市海淀区科技园&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-medium mb-4">全球网络</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">我们的全球业务</h2>
+                    <p class="text-lg text-gray-800 dark:text-gray-300 max-w-3xl mx-auto">
+                        XTools 在全球范围内提供服务，我们的团队遍布世界各地，为用户提供优质的产品和服务体验
+                    </p>
+                </div>
+
+                <!-- 全球业务展示 - 玻璃态卡片设计 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 亚太地区 -->
+                    <div class="group relative overflow-hidden rounded-2xl backdrop-blur-md bg-white/90 dark:bg-gray-800/80 border border-white/40 dark:border-gray-700/50 shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-2">
+                        <!-- 悬浮时的光效 -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 dark:from-blue-500/10 dark:to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 mb-6 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/20">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">亚太地区</h3>
+                            <p class="text-gray-800 dark:text-gray-300 mb-6">总部位于北京，研发中心覆盖上海、深圳、东京和新加坡，为亚太地区用户提供本地化服务。</p>
+                            
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 rounded-full font-medium">北京</span>
+                                <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 rounded-full font-medium">上海</span>
+                                <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 rounded-full font-medium">东京</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 欧洲地区 -->
+                    <div class="group relative overflow-hidden rounded-2xl backdrop-blur-md bg-white/90 dark:bg-gray-800/80 border border-white/40 dark:border-gray-700/50 shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-2">
+                        <!-- 悬浮时的光效 -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 dark:from-purple-500/10 dark:to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 mb-6 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg shadow-purple-500/20">
+                                <i class="fas fa-globe-europe"></i>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">欧洲地区</h3>
+                            <p class="text-gray-800 dark:text-gray-300 mb-6">欧洲区域中心位于柏林，技术和设计团队分布在伦敦、巴黎和阿姆斯特丹，为欧洲用户提供在地支持。</p>
+                            
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 rounded-full font-medium">柏林</span>
+                                <span class="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 rounded-full font-medium">伦敦</span>
+                                <span class="px-3 py-1 text-sm bg-purple-100 dark:bg-purple-900/60 text-purple-700 dark:text-purple-300 rounded-full font-medium">巴黎</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 美洲地区 -->
+                    <div class="group relative overflow-hidden rounded-2xl backdrop-blur-md bg-white/90 dark:bg-gray-800/80 border border-white/40 dark:border-gray-700/50 shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:transform hover:-translate-y-2">
+                        <!-- 悬浮时的光效 -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-teal-500/5 dark:from-green-500/10 dark:to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 mb-6 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg shadow-green-500/20">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">美洲地区</h3>
+                            <p class="text-gray-800 dark:text-gray-300 mb-6">美洲总部位于旧金山，研发和营销团队遍布纽约、多伦多和圣保罗，覆盖北美和南美市场。</p>
+                            
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 text-sm bg-green-100 dark:bg-green-900/60 text-green-700 dark:text-green-300 rounded-full font-medium">旧金山</span>
+                                <span class="px-3 py-1 text-sm bg-green-100 dark:bg-green-900/60 text-green-700 dark:text-green-300 rounded-full font-medium">纽约</span>
+                                <span class="px-3 py-1 text-sm bg-green-100 dark:bg-green-900/60 text-green-700 dark:text-green-300 rounded-full font-medium">多伦多</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 全球服务品质 -->
+                <div class="mt-16 text-center">
+                    <div class="inline-flex items-center justify-center space-x-8 p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg border border-white/40 dark:border-gray-700/50">
+                        <div class="flex flex-col items-center">
+                            <div class="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">24/7</div>
+                            <div class="text-gray-800 dark:text-gray-300 font-medium">全天候服务</div>
+                        </div>
+                        <div class="h-12 w-px bg-gray-300 dark:bg-gray-700"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">18+</div>
+                            <div class="text-gray-800 dark:text-gray-300 font-medium">服务国家</div>
+                        </div>
+                        <div class="h-12 w-px bg-gray-300 dark:bg-gray-700"></div>
+                        <div class="flex flex-col items-center">
+                            <div class="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">99.9%</div>
+                            <div class="text-gray-800 dark:text-gray-300 font-medium">服务可用性</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -187,41 +298,89 @@
     </section>
 
     <!-- 常见问题 -->
-    <section class="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center" data-i18n="contactPage.faq">常见问题</h2>
+    <section class="py-20 bg-gray-50 dark:bg-gray-800/50 transition-colors duration-300 relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-400/5 dark:bg-blue-500/5 rounded-full filter blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-indigo-400/5 dark:bg-indigo-500/5 rounded-full filter blur-3xl"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block px-4 py-1 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-sm font-medium mb-4">常见解答</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6" data-i18n="contactPage.faq">常见问题</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        您可能关心的问题都在这里，如果没有找到您想要的答案，请随时联系我们
+                    </p>
+                </div>
                 
                 <div class="space-y-6">
-                    <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none">
-                            <span class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="contactPage.faq1">如何获取技术支持？</span>
-                            <i class="fas fa-chevron-down text-gray-500 dark:text-gray-400"></i>
+                    <!-- FAQ 项目 1 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-xl group">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mr-4">
+                                    <i class="fas fa-question text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <span class="text-xl font-semibold text-gray-900 dark:text-white" data-i18n="contactPage.faq1">如何获取技术支持？</span>
+                            </div>
+                            <div class="transition-transform duration-300 group-hover:rotate-180">
+                                <i class="fas fa-chevron-down text-gray-500 dark:text-gray-400"></i>
+                            </div>
                         </button>
-                        <div class="p-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
-                            <p class="text-gray-600 dark:text-gray-300" data-i18n="contactPage.faqAnswer1">您可以通过填写联系表单、发送邮件至support@xtools.com或拨打我们的客服热线获取技术支持。我们的技术团队会在24小时内回复您的问题。</p>
+                        <div class="p-6 pt-0 bg-white dark:bg-gray-800">
+                            <div class="pl-14">
+                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="contactPage.faqAnswer1">您可以通过填写联系表单、发送邮件至support@xtools.com或拨打我们的客服热线获取技术支持。我们的技术团队会在24小时内回复您的问题。我们还提供完善的在线文档和视频教程，可以帮助您快速解决常见问题。</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none">
-                            <span class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="contactPage.faq2">XTools是否提供API接口？</span>
-                            <i class="fas fa-chevron-down text-gray-500 dark:text-gray-400"></i>
+                    <!-- FAQ 项目 2 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-xl group">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-purple-600 dark:text-purple-400"></i>
+                                </div>
+                                <span class="text-xl font-semibold text-gray-900 dark:text-white" data-i18n="contactPage.faq2">XTools是否提供API接口？</span>
+                            </div>
+                            <div class="transition-transform duration-300 group-hover:rotate-180">
+                                <i class="fas fa-chevron-down text-gray-500 dark:text-gray-400"></i>
+                            </div>
                         </button>
-                        <div class="p-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
-                            <p class="text-gray-600 dark:text-gray-300" data-i18n="contactPage.faqAnswer2">是的，我们为大部分工具提供了API接口，方便开发者集成到自己的应用中。详细的API文档可以在开发者中心查看，如需商业授权请联系我们的销售团队。</p>
+                        <div class="p-6 pt-0 bg-white dark:bg-gray-800">
+                            <div class="pl-14">
+                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="contactPage.faqAnswer2">是的，我们为大部分工具提供了API接口，方便开发者集成到自己的应用中。详细的API文档可以在开发者中心查看，如需商业授权请联系我们的销售团队。我们提供REST API和SDK，支持多种编程语言，包括Swift、Java、Python和JavaScript。</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
-                        <button class="w-full flex items-center justify-between p-4 text-left focus:outline-none">
-                            <span class="text-lg font-semibold text-gray-900 dark:text-white" data-i18n="contactPage.faq3">如何提交功能建议或报告问题？</span>
-                            <i class="fas fa-chevron-down text-gray-500 dark:text-gray-400"></i>
+                    <!-- FAQ 项目 3 -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-xl group">
+                        <button class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center mr-4">
+                                    <i class="fas fa-lightbulb text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <span class="text-xl font-semibold text-gray-900 dark:text-white" data-i18n="contactPage.faq3">如何提交功能建议或报告问题？</span>
+                            </div>
+                            <div class="transition-transform duration-300 group-hover:rotate-180">
+                                <i class="fas fa-chevron-down text-gray-500 dark:text-gray-400"></i>
+                            </div>
                         </button>
-                        <div class="p-4 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
-                            <p class="text-gray-600 dark:text-gray-300" data-i18n="contactPage.faqAnswer3">我们非常欢迎用户的反馈和建议。您可以通过本页的联系表单提交您的想法，或发送邮件至feedback@xtools.com。我们的产品团队会认真考虑每一条建议，并在产品迭代中采纳合理的意见。</p>
+                        <div class="p-6 pt-0 bg-white dark:bg-gray-800">
+                            <div class="pl-14">
+                                <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-i18n="contactPage.faqAnswer3">我们非常欢迎用户的反馈和建议。您可以通过本页的联系表单提交您的想法，或发送邮件至feedback@xtools.com。我们的产品团队会认真考虑每一条建议，并在产品迭代中采纳合理的意见。对于问题报告，我们会根据严重程度在1-3个工作日内给您回复。</p>
+                            </div>
                         </div>
                     </div>
+                </div>
+                
+                <!-- 更多问题引导 -->
+                <div class="mt-12 text-center">
+                    <a href="#" class="inline-flex items-center px-6 py-3 bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-300 rounded-xl font-medium shadow-md hover:shadow-lg transition-all duration-300 border border-blue-100 dark:border-gray-600 group">
+                        <span class="mr-2">查看完整FAQ</span>
+                        <i class="fas fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -285,22 +444,36 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // FAQ手风琴效果
-            const faqButtons = document.querySelectorAll('.border button');
+            const faqButtons = document.querySelectorAll('.space-y-6 .group button');
             
             faqButtons.forEach(button => {
                 button.addEventListener('click', () => {
+                    const faqItem = button.closest('.group');
                     const content = button.nextElementSibling;
-                    const icon = button.querySelector('i');
+                    const icon = button.querySelector('.transition-transform');
                     
-                    // 切换内容显示/隐藏
-                    if (content.style.maxHeight) {
+                    // 检查是否已经打开
+                    const isOpen = content.style.maxHeight;
+                    
+                    // 先关闭所有打开的FAQ
+                    faqButtons.forEach(otherButton => {
+                        if (otherButton !== button) {
+                            const otherContent = otherButton.nextElementSibling;
+                            const otherIcon = otherButton.querySelector('.transition-transform');
+                            otherContent.style.maxHeight = null;
+                            otherIcon.classList.remove('rotate-180');
+                        }
+                    });
+                    
+                    // 切换当前FAQ的状态
+                    if (isOpen) {
                         content.style.maxHeight = null;
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
+                        icon.classList.remove('rotate-180');
+                        faqItem.classList.remove('shadow-2xl');
                     } else {
                         content.style.maxHeight = content.scrollHeight + 'px';
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
+                        icon.classList.add('rotate-180');
+                        faqItem.classList.add('shadow-2xl');
                     }
                 });
             });
@@ -323,11 +496,37 @@
                     console.log('表单数据:', formData);
                     
                     // 显示成功消息
-                    alert('感谢您的留言！我们将尽快回复您。');
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.innerHTML;
                     
-                    // 清空表单
-                    contactForm.reset();
+                    // 显示发送中状态
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> 发送中...';
+                    submitButton.disabled = true;
+                    
+                    // 模拟请求延迟
+                    setTimeout(() => {
+                        // 显示成功状态
+                        submitButton.innerHTML = '<i class="fas fa-check mr-2"></i> 发送成功!';
+                        submitButton.classList.remove('from-blue-500', 'to-indigo-600');
+                        submitButton.classList.add('from-green-500', 'to-green-600');
+                        
+                        // 清空表单
+                        contactForm.reset();
+                        
+                        // 恢复原始状态
+                        setTimeout(() => {
+                            submitButton.innerHTML = originalText;
+                            submitButton.disabled = false;
+                            submitButton.classList.remove('from-green-500', 'to-green-600');
+                            submitButton.classList.add('from-blue-500', 'to-indigo-600');
+                        }, 3000);
+                    }, 1500);
                 });
+            }
+            
+            // 初始打开第一个FAQ项目（可选）
+            if (faqButtons.length > 0) {
+                faqButtons[0].click();
             }
         });
     </script>
